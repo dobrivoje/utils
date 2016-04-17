@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>utils</groupId>
+    <groupId>org.superbapps</groupId>
     <artifactId>Utils</artifactId>
-    <version>1.0</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -36,10 +36,33 @@
             <version>7.6.4</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.vaadin.highcharts</groupId>
+            <artifactId>highcharts</artifactId>
+            <version>1.1</version>
+        </dependency>
     </dependencies>
+    
+    <repositories>
+        <repository>
+            <id>vaadin-addons</id>
+            <url>http://maven.vaadin.com/vaadin-addons</url>
+        </repository> 
+    </repositories>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <description>
+        1.2 - Refaktorizacija !
+        - Uvođenje common folder-a, i ubacivanje oubičajenih i deljenih klasa
+        - Izmena naziva za translator
+        - Premeštanje vaadin exception-a u vaadin paket.
+        1.1.2 - Izmena naziva Artifact Id-a : iz util, u Util :)
+        1.1.1 - Izmena naziva Artifact Id-a : iz util, u UTIL
+        1.1 - Refaktorizacija
+        1.0 - Init
+    </description>
 </project>

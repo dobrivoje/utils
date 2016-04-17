@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.superb.apps.utilities.vaadin.Trees;
+package org.superbapps.utils.vaadin.Trees;
 
 public interface IUpdateData<T> {
 

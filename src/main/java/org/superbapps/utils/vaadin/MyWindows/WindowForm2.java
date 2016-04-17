@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.superb.apps.utilities.vaadin.MyWindows;
+package org.superbapps.utils.vaadin.MyWindows;
 
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.FontAwesome;
@@ -21,7 +21,7 @@ import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.ValoTheme;
-import static org.superb.apps.utilities.vaadin.MyWindows.ProfilePreferencesWindow.ID;
+import static org.superbapps.utils.vaadin.Views.View_Dashboard.NotificationsButton.ID;
 
 /**
  *

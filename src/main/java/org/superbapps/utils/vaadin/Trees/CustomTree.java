@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.superb.apps.utilities.vaadin.Trees;
+package org.superbapps.utils.vaadin.Trees;
 
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
-import db.Exceptions.CustomTreeNodesEmptyException;
+import org.superbapps.utils.vaadin.Exceptions.CustomTreeNodesEmptyException;
 import java.util.ArrayList;
 import java.util.List;
 import static org.superb.apps.utilities.vaadin.MyWindows.WindowFormProp.WINDOW_HEIGHT_DEFAULT_NORM;
@@ -77,7 +77,7 @@ public class CustomTree<T> extends Tree {
      *
      * @param caption Tree caption
      * @param rootItems root nodes list
-     * @throws db.Exceptions.CustomTreeNodesEmptyException
+     * @throws org.superbapps.utils.vaadin.Exceptions.CustomTreeNodesEmptyException
      */
     public CustomTree(String caption, List rootItems) throws CustomTreeNodesEmptyException, NullPointerException {
         this(caption, rootItems, false);
@@ -111,7 +111,7 @@ public class CustomTree<T> extends Tree {
      *
      * @param caption
      * @param container BeanContainer
-     * @throws db.Exceptions.CustomTreeNodesEmptyException
+     * @throws org.superbapps.utils.vaadin.Exceptions.CustomTreeNodesEmptyException
      */
     public CustomTree(String caption, BeanItemContainer<T> container) throws CustomTreeNodesEmptyException, NullPointerException {
         if (container == null) {

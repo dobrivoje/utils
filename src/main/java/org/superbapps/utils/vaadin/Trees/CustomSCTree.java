@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.superb.apps.utilities.vaadin.Trees;
+package org.superbapps.utils.vaadin.Trees;
 
 import com.vaadin.data.util.BeanItemContainer;
-import db.Exceptions.CustomTreeNodesEmptyException;
+import org.superbapps.utils.vaadin.Exceptions.CustomTreeNodesEmptyException;
 import java.util.List;
 
 /**
@@ -26,7 +26,7 @@ public class CustomSCTree<T> extends CustomTree<T> {
      *
      * @param caption
      * @param treeItems Lista čvorova
-     * @throws db.Exceptions.CustomTreeNodesEmptyException
+     * @throws org.superbapps.utils.vaadin.Exceptions.CustomTreeNodesEmptyException
      */
     public CustomSCTree(String caption, List treeItems) throws CustomTreeNodesEmptyException, NullPointerException {
         super(caption, treeItems);

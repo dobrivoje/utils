@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.superb.apps.utilities.vaadin.MyWindows;
+package org.superbapps.utils.vaadin.MyWindows;
 
 import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Alignment;

@@ -1,4 +1,4 @@
-package org.superb.apps.utilities.vaadin.Views;
+package org.superbapps.utils.vaadin.Views;
 
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.navigator.View;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.superb.apps.utilities.datum.Dates;
+import org.superbapps.utils.common.dates.Dates;
 
 @SuppressWarnings("serial")
 public abstract class View_Dashboard extends Panel implements View {
@@ -146,9 +146,9 @@ public abstract class View_Dashboard extends Panel implements View {
         caption.addStyleName(ValoTheme.LABEL_NO_MARGIN);
         content.setCaption("");
 
-        MenuBar tools = new MenuBar();
-        tools.addStyleName(ValoTheme.MENUBAR_BORDERLESS);
-        max = tools.addItem("", FontAwesome.EXPAND, (final MenuBar.MenuItem selectedItem) -> {
+        MenuBar tools1 = new MenuBar();
+        tools1.addStyleName(ValoTheme.MENUBAR_BORDERLESS);
+        max = tools1.addItem("", FontAwesome.EXPAND, (final MenuBar.MenuItem selectedItem) -> {
             if (!slot.getStyleName().contains("max")) {
                 selectedItem.setIcon(FontAwesome.COMPRESS);
                 toggleMaximized(slot, viewMaximized = true);
@@ -160,7 +160,7 @@ public abstract class View_Dashboard extends Panel implements View {
         });
         max.setStyleName("icon-only");
 
-        MenuBar.MenuItem panelOptions = tools.addItem("", FontAwesome.COG, null);
+        MenuBar.MenuItem panelOptions = tools1.addItem("", FontAwesome.COG, null);
 
         // pomocna varijabla za iscrtavanje separator linije
         int separatorInd = 0;
@@ -184,7 +184,7 @@ public abstract class View_Dashboard extends Panel implements View {
             panelOptions.addItem(ES.getKey(), ES.getValue());
         }
 
-        toolbar.addComponents(caption, tools);
+        toolbar.addComponents(caption, tools1);
         toolbar.setExpandRatio(caption, 1);
         toolbar.setComponentAlignment(caption, Alignment.MIDDLE_LEFT);
 

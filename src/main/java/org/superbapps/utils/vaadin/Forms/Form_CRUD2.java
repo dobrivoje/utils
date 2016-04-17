@@ -11,8 +11,8 @@ import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
 import java.util.Date;
-import org.dobrivoje.utils.date.formats.DateFormat;
-import org.superb.apps.utilities.vaadin.Trees.IUpdateData;
+import org.superbapps.utils.common.dates.formats.DateFormat;
+import org.superbapps.utils.vaadin.Trees.IUpdateData;
 
 public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T> {
 

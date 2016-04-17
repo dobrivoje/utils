@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.superb.apps.utilities.vaadin.Tables;
+package org.superbapps.utils.vaadin.Tables;
 
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.ui.Table;
 import java.util.List;
-import org.superb.apps.utilities.vaadin.Tables.IRefreshVisualContainer;
 
 /**
  *

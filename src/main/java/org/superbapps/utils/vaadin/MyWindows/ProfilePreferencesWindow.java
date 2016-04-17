@@ -1,4 +1,4 @@
-package org.superb.apps.utilities.vaadin.MyWindows;
+package org.superbapps.utils.vaadin.MyWindows;
 
 import com.vaadin.data.fieldgroup.PropertyId;
 import com.vaadin.event.ShortcutAction.KeyCode;
@@ -13,7 +13,6 @@ import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.FormLayout;
@@ -67,7 +66,7 @@ public class ProfilePreferencesWindow extends Window {
         Responsive.makeResponsive(this);
 
         setModal(true);
-        setCloseShortcut(KeyCode.ESCAPE, null);
+        addCloseShortcut(KeyCode.ESCAPE, null);
         setResizable(false);
         setClosable(false);
         setHeight(70, Unit.PERCENTAGE);
@@ -217,7 +216,7 @@ public class ProfilePreferencesWindow extends Window {
         ok.addClickListener((ClickEvent event) -> {
             // Updated user should also be persisted to database. But
             // not in this demo.
-            
+
             Notification success = new Notification(
                     "Profile updated successfully");
             success.setDelayMsec(2000);

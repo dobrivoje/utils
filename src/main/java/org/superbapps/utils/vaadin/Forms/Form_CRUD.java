@@ -1,4 +1,4 @@
-package org.superb.apps.utilities.vaadin.Forms;
+package org.superbapps.utils.vaadin.Forms;
 
 import com.vaadin.data.fieldgroup.FieldGroup;
 import com.vaadin.data.util.BeanItem;
@@ -6,8 +6,8 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.themes.Reindeer;
-import static org.superb.apps.utilities.Enums.CrudOperations.BUTTON_CAPTION_SAVE;
-import org.superb.apps.utilities.vaadin.Tables.IRefreshVisualContainer;
+import static org.superbapps.utils.common.Enums.CrudOperations.BUTTON_CAPTION_SAVE;
+import org.superbapps.utils.vaadin.Tables.IRefreshVisualContainer;
 
 public abstract class Form_CRUD<T> extends FormLayout {
 
@@ -70,11 +70,11 @@ public abstract class Form_CRUD<T> extends FormLayout {
 
                 try {
                     updateExistingBean(bean);
-                    
+
                     if (visualContainer != null) {
                         visualContainer.refreshVisualContainer();
                     }
-                    
+
                     Notification.show("Item Updated.", Notification.Type.TRAY_NOTIFICATION);
                 } catch (Exception ex) {
                     Notification.show("Error", ex.toString(), Notification.Type.ERROR_MESSAGE);

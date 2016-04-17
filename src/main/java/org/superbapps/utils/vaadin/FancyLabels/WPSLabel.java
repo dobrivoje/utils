@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.superb.apps.utilities.vaadin.FancyLabels;
+package org.superbapps.utils.vaadin.FancyLabels;
 
 import com.vaadin.server.FontAwesome;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Label;
 import java.util.HashMap;
 import java.util.Map;
-import org.superb.apps.utilities.Enums.WorkingPlansStatuses;
+import org.superbapps.utils.common.Enums.WorkingPlansStatuses;
 
 /**
  *
