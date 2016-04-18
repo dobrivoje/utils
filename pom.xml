@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.superbapps</groupId>
-    <artifactId>Utils</artifactId>
-    <version>1.2</version>
+    <artifactId>utils-all</artifactId>
+    <version>1.5</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -55,7 +55,9 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    <description>
+    <description>   
+        1.5. 18.4.2016 22:37 - Refaktorizacija paketa vaadin.highcharts u : org.vaadin.highcharts !
+                                             Zbog ove greške se nisu prikazivali highchart-ovi !!!
         1.2 - Refaktorizacija !
         - Uvođenje common folder-a, i ubacivanje oubičajenih i deljenih klasa
         - Izmena naziva za translator
@@ -63,6 +65,6 @@
         1.1.2 - Izmena naziva Artifact Id-a : iz util, u Util :)
         1.1.1 - Izmena naziva Artifact Id-a : iz util, u UTIL
         1.1 - Refaktorizacija
-        1.0 - Init
-    </description>
+        1.0 - Init</description>
+    <name>Utils</name>
 </project>

@@ -1,4 +1,4 @@
-package vaadin.highcharts;
+package org.vaadin.highcharts;
 
 import com.vaadin.annotations.JavaScript;
 import org.vaadin.highcharts.AbstractHighChart;
