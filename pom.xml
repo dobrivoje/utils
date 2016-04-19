@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.5</version>
+    <version>1.5.2</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -55,7 +55,10 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    <description>   
+    <description>
+        1.5.2 19.4.2016 21:50 - ispravak greške u MyWindow klasi  
+        1.5.1 19.4.2016 20:39 - org.superbapps.utils / excel, vaadin zbog ostatka starih zapisa
+                                             "org.supperb.apps".
         1.5. 18.4.2016 22:37 - Refaktorizacija paketa vaadin.highcharts u : org.vaadin.highcharts !
                                              Zbog ove greške se nisu prikazivali highchart-ovi !!!
         1.2 - Refaktorizacija !

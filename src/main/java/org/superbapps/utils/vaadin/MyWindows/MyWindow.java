@@ -5,7 +5,6 @@
  */
 package org.superbapps.utils.vaadin.MyWindows;
 
-import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
@@ -52,20 +51,19 @@ public class MyWindow extends Window {
     }
 
     public MyWindow(Layout layout) {
-        super();
+        super("", layout);
 
         layout.setSizeFull();
         setHeight(66, Unit.PERCENTAGE);
         setWidth(48, Unit.PERCENTAGE);
         center();
-        setContent(layout);
     }
 
     public MyWindow(String caption, Layout layout, float height, float width) {
         this(caption, layout, height, width, Unit.PERCENTAGE);
     }
 
-    public MyWindow(String caption, Layout layout, float height, float width, Sizeable.Unit unit) {
+    public MyWindow(String caption, Layout layout, float height, float width, Unit unit) {
         this(layout);
         setCaption(caption);
 
@@ -74,7 +72,7 @@ public class MyWindow extends Window {
         }
 
         if (width != 0) {
-            setHeight(width, unit);
+            setWidth(width, unit);
         }
     }
 

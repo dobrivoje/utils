@@ -12,8 +12,8 @@ import com.vaadin.ui.VerticalLayout;
 import org.superbapps.utils.vaadin.Exceptions.CustomTreeNodesEmptyException;
 import java.util.ArrayList;
 import java.util.List;
-import static org.superb.apps.utilities.vaadin.MyWindows.WindowFormProp.WINDOW_HEIGHT_DEFAULT_NORM;
-import static org.superb.apps.utilities.vaadin.MyWindows.WindowFormProp.WINDOW_WIDTH_DEFAULT_NORM;
+import static org.superbapps.utils.vaadin.MyWindows.WindowFormProp.WINDOW_HEIGHT_DEFAULT_NORM;
+import static org.superbapps.utils.vaadin.MyWindows.WindowFormProp.WINDOW_WIDTH_DEFAULT_NORM;
 
 /**
  *

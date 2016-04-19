@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.apache.poi.ss.usermodel.Row;
-import org.dobrivoje.utils.excel.exceptions.ExcelGenException;
+import org.superbapps.utils.excel.exceptions.ExcelGenException;
 
 /**
  *

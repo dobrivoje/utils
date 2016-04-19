@@ -1,4 +1,4 @@
-package org.superb.apps.utilities.vaadin.MyWindows;
+package org.superbapps.utils.vaadin.MyWindows;
 
 import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Alignment;
