@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.5.2</version>
+    <version>1.5.3</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -56,6 +56,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <description>
+        1.5.2 20.4.2016 7:10 - Uvođenje funkcionalnosti za zaključavanje polja u layout-u unutar Windows3 klase.
+                                            - novi interfejs ILayoutLockable - početak razvoja.  
         1.5.2 19.4.2016 21:50 - ispravak greške u MyWindow klasi  
         1.5.1 19.4.2016 20:39 - org.superbapps.utils / excel, vaadin zbog ostatka starih zapisa
                                              "org.supperb.apps".

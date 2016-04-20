@@ -20,6 +20,7 @@ import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.ValoTheme;
+import org.superbapps.utils.vaadin.Trees.ILayoutLockable;
 import static org.superbapps.utils.vaadin.Views.View_Dashboard.NotificationsButton.ID;
 
 /**
@@ -39,11 +40,13 @@ public class WindowForm3 extends Window {
         this(caption, formLayout, imageLocation, "Save", externalButtonClickListener, false);
     }
 
-    private WindowForm3(String caption, Layout formLayout, String imageLocation, String actionButtonCaption, Button.ClickListener externalButtonClickListener) {
+    private WindowForm3(String caption, Layout formLayout, String imageLocation, String actionButtonCaption,
+            Button.ClickListener externalButtonClickListener) {
         this(caption, formLayout, imageLocation, actionButtonCaption, externalButtonClickListener, false);
     }
 
-    public WindowForm3(String caption, Layout formLayout, String imageLocation, String actionButtonCaption, Button.ClickListener externalButtonClickListener, boolean imageDefaultSize) {
+    public WindowForm3(String caption, Layout formLayout, String imageLocation, String actionButtonCaption,
+            Button.ClickListener externalButtonClickListener, boolean imageDefaultSize) {
         if (imageDefaultSize) {
             init(caption, formLayout, imageLocation, actionButtonCaption, externalButtonClickListener, -1, 150, null);
         } else {
@@ -62,7 +65,8 @@ public class WindowForm3 extends Window {
      * @param imgHeight Left image height
      * @param imgWidth Left image width
      */
-    public WindowForm3(String caption, Layout formLayout, String imageLocation, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth) {
+    public WindowForm3(String caption, Layout formLayout, String imageLocation, Button.ClickListener externalButtonClickListener,
+            int imgHeight, int imgWidth) {
         init(caption, formLayout, imageLocation, "Save", externalButtonClickListener, imgHeight, imgWidth, null);
     }
 
@@ -78,13 +82,16 @@ public class WindowForm3 extends Window {
      * @param imgWidth Left image width
      * @param readOnly If true, prevent adding action button on the form
      */
-    public WindowForm3(String caption, Layout formLayout, String imageLocation, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, boolean readOnly) {
+    public WindowForm3(String caption, Layout formLayout, String imageLocation, Button.ClickListener externalButtonClickListener,
+            int imgHeight, int imgWidth, boolean readOnly) {
         init(caption, formLayout, imageLocation, "Save", externalButtonClickListener, imgHeight, imgWidth, null);
         actionButton.setVisible(!readOnly);
     }
 
-    public WindowForm3(String caption, Layout formLayout, String imageLocation, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, boolean readOnly, String buttonStyle, Button... additionalFooterButtons) {
-        init(caption, formLayout, imageLocation, "Save", externalButtonClickListener, imgHeight, imgWidth, buttonStyle, additionalFooterButtons);
+    public WindowForm3(String caption, Layout formLayout, String imageLocation, Button.ClickListener externalButtonClickListener,
+            int imgHeight, int imgWidth, boolean readOnly, String buttonStyle, Button... additionalFooterButtons) {
+        init(caption, formLayout, imageLocation, "Save", externalButtonClickListener, imgHeight, imgWidth, buttonStyle,
+                additionalFooterButtons);
         actionButton.setVisible(!readOnly);
     }
 
@@ -101,7 +108,8 @@ public class WindowForm3 extends Window {
      * @param imgWidth Left image width
      * @param readOnly If true, prevent adding action button on the form
      */
-    public WindowForm3(String caption, Layout formLayout, String imageLocation, String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, boolean readOnly) {
+    public WindowForm3(String caption, Layout formLayout, String imageLocation, String actionButtonCaption,
+            Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, boolean readOnly) {
         init(caption, formLayout, imageLocation, actionButtonCaption, externalButtonClickListener, imgHeight, imgWidth, null);
 
         if (actionButton != null) {
@@ -109,7 +117,8 @@ public class WindowForm3 extends Window {
         }
     }
 
-    public WindowForm3(String caption, Layout formLayout, int formHeight, int formWidth, Unit unit, String imageLocation, String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, boolean readOnly) {
+    public WindowForm3(String caption, Layout formLayout, int formHeight, int formWidth, Unit unit, String imageLocation,
+            String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, boolean readOnly) {
         init(caption, formLayout, formHeight, formWidth, unit, imageLocation, actionButtonCaption, externalButtonClickListener, imgHeight, imgWidth, null);
 
         if (actionButton != null) {
@@ -117,7 +126,9 @@ public class WindowForm3 extends Window {
         }
     }
 
-    public WindowForm3(String caption, Layout formLayout, int formHeight, int formWidth, String imageLocation, String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgWidth, int imgHeight, boolean readOnly) {
+    public WindowForm3(String caption, Layout formLayout, int formHeight, int formWidth, String imageLocation,
+            String actionButtonCaption, Button.ClickListener externalButtonClickListener,
+            int imgWidth, int imgHeight, boolean readOnly) {
         init(caption, formLayout, imageLocation, actionButtonCaption, externalButtonClickListener, imgHeight, imgWidth, null);
 
         if (actionButton != null) {
@@ -125,11 +136,41 @@ public class WindowForm3 extends Window {
         }
     }
 
-    private void init(String caption, Layout formLayout, String imageLocation, String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, String buttonStyle, Button... additionalFooterButtons) {
-        init(caption, formLayout, 70, 60, Unit.PERCENTAGE, imageLocation, actionButtonCaption, externalButtonClickListener, imgHeight, imgWidth, buttonStyle, additionalFooterButtons);
+    /**
+     * Manage lockable layout, meaning, lock all form fields if necessary
+     * through interface.
+     *
+     * @param caption
+     * @param layoutLockable Layout (form) fields to be locked (or not).
+     * @param formHeight
+     * @param formWidth
+     * @param imageLocation
+     * @param actionButtonCaption
+     * @param externalButtonClickListener
+     * @param imgWidth
+     * @param imgHeight
+     * @param readOnly
+     */
+    public WindowForm3(String caption, ILayoutLockable layoutLockable, int formHeight, int formWidth, String imageLocation,
+            String actionButtonCaption, Button.ClickListener externalButtonClickListener,
+            int imgWidth, int imgHeight, boolean readOnly) {
+        init(caption, layoutLockable, imageLocation, actionButtonCaption, externalButtonClickListener, imgHeight, imgWidth, null);
+
+        if (actionButton != null) {
+            actionButton.setVisible(!readOnly);
+        }
     }
 
-    private void init(String caption, Layout formLayout, int formHeight, int formWidth, Unit unit, String imageLocation, String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, String buttonStyle, Button... additionalFooterButtons) {
+    private void init(String caption, Layout formLayout, String imageLocation, String actionButtonCaption,
+            Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, String buttonStyle,
+            Button... additionalFooterButtons) {
+        init(caption, formLayout, 70, 60, Unit.PERCENTAGE, imageLocation, actionButtonCaption, externalButtonClickListener,
+                imgHeight, imgWidth, buttonStyle, additionalFooterButtons);
+    }
+
+    private void init(String caption, Layout formLayout, int formHeight, int formWidth, Unit unit, String imageLocation,
+            String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth,
+            String buttonStyle, Button... additionalFooterButtons) {
         addStyleName("profile-window");
         setId(ID);
         Responsive.makeResponsive(this);
