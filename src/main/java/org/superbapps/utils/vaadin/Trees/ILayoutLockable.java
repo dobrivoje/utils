@@ -18,7 +18,7 @@ public interface ILayoutLockable extends Layout {
 
     /**
      *
-     * @param lockFields When true, all fields on the layout are locked.
+     * @param readOnly When true, all fields on the layout are locked.
      */
-    void setLayoutFieldsLocked(boolean lockFields);
+    void setLayoutFieldsLocked(boolean readOnly);
 }
