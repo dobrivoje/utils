@@ -88,9 +88,9 @@ public class WindowForm3 extends Window {
         actionButton.setVisible(!readOnly);
     }
 
-    public WindowForm3(String caption, Layout formLayout, String imageLocation, Button.ClickListener externalButtonClickListener,
+    public WindowForm3(String caption, Layout formLayout, int formHeight, int formWidth, Unit unit, String imageLocation, Button.ClickListener externalButtonClickListener,
             int imgHeight, int imgWidth, boolean readOnly, String buttonStyle, Button... additionalFooterButtons) {
-        init(caption, formLayout, imageLocation, "Save", externalButtonClickListener, imgHeight, imgWidth, buttonStyle,
+        init(caption, formLayout, formHeight, formWidth, unit, imageLocation, "Save", externalButtonClickListener, imgHeight, imgWidth, buttonStyle,
                 additionalFooterButtons);
         actionButton.setVisible(!readOnly);
     }
