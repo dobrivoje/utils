@@ -29,8 +29,9 @@ public class UploadReceiver implements Receiver, ProgressListener, StartedListen
     private final String filePath;
     private File file;
 
-    private static final List<String> allowedMIMEtypes = Arrays.asList(
-            "image/bmp", "image/gif", "image/jpeg", "image/png", "image/tiff"
+    private static final List<String> ALLOWED_MIME_TYPES = Arrays.asList(
+            "image/bmp", "image/gif", "image/jpeg", "image/png", "image/tiff",
+            "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     );
 
     public UploadReceiver(ProgressBar indicator, String filePath) {
@@ -68,7 +69,7 @@ public class UploadReceiver implements Receiver, ProgressListener, StartedListen
 
     @Override
     public void uploadStarted(Upload.StartedEvent event) {
-        for (String mt : allowedMIMEtypes) {
+        for (String mt : ALLOWED_MIME_TYPES) {
             if (mt.equalsIgnoreCase(event.getMIMEType())) {
 
             }

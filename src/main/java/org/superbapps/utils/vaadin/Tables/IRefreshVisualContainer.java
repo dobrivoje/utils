@@ -11,5 +11,5 @@ package org.superbapps.utils.vaadin.Tables;
  */
 public interface IRefreshVisualContainer {
 
-    public void refreshVisualContainer();
+    void refreshVisualContainer();
 }

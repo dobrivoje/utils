@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.6.1</version>
+    <version>1.6.2</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -56,6 +56,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <description>
+        1.6.2. 25.4.2016 17:30 - u View_Dashboard-u, otključavanje gornja dva dugmeta
+              kako bismo ih iskoristili u nasleđenim klasama.
+
         1.6.1. 25.4.2016 12:55 - A sad stvarno ispravka greške
               - Mislio sam da sam rešio problem, ali me je "tmarginwhs_test" zezao jer se izvršavao svaki put
                 kada je rađen build (uključen @test,..) pa me je zavaravao :) SRAMOTA !

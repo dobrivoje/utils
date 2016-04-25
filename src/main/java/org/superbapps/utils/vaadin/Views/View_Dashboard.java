@@ -35,7 +35,8 @@ public abstract class View_Dashboard extends Panel implements View {
     private static final String TITLE_ID = "dashboard-title";
 
     private Label titleLabel;
-    private NotificationsButton notificationsButton;
+    protected NotificationsButton notificationsButton;
+    protected Button editButton;
     protected CssLayout dashboardPanels;
     protected final VerticalLayout root = new VerticalLayout();
 
@@ -96,7 +97,7 @@ public abstract class View_Dashboard extends Panel implements View {
         header.addComponent(titleLabel);
 
         notificationsButton = buildNotificationsButton();
-        Component editButton = buildEditButton();
+        editButton = buildEditButton();
 
         tools.addComponents(notificationsButton, editButton);
 
@@ -113,7 +114,7 @@ public abstract class View_Dashboard extends Panel implements View {
         return result;
     }
 
-    private Component buildEditButton() {
+    private Button buildEditButton() {
         Button result = new Button();
         result.setId(EDIT_ID);
         result.setIcon(FontAwesome.EDIT);
