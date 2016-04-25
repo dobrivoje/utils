@@ -106,7 +106,7 @@ public abstract class ExcelDobri {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Support methods">
-    private Workbook getWorkbook(String filePath) throws Exception {
+    private Workbook getWorkbook(String filePath) throws NoExcelFileException, ExcelGenException, Exception {
         File f = new File(filePath);
         String ext = FilenameUtils.getExtension(filePath);
         Workbook wb;
@@ -123,11 +123,13 @@ public abstract class ExcelDobri {
             default:
                 throw new NoExcelFileException();
         }
-
+        
+        setUpBeanList();
+        
         return wb;
     }
 
-    protected void setUpBeanList() throws Exception {
+    private void setUpBeanList() throws Exception {
         if (excelSupport == null) {
             throw new ExcelGenException();
         }
@@ -149,7 +151,7 @@ public abstract class ExcelDobri {
      * @return
      */
     public synchronized List getExcelProcessedList() {
-        return IExcelSupport.resultList;
+        return IExcelSupport.RESULTLIST;
     }
     //</editor-fold>
 

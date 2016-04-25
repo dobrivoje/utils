@@ -20,14 +20,14 @@ public interface IExcelSupport {
     /**
      * Synchronized list !
      */
-    final List resultList = Collections.synchronizedList(new ArrayList());
+    final List RESULTLIST = Collections.synchronizedList(new ArrayList());
 
     /**
      * U zavisnosti od samog bean-a <br>
      * napraviti preslikavanje podataka. <br>
      *
      * Npr. <br>
-     * resultList.add(new TMarginWHS( <br>
+     * RESULTLIST.add(new TMarginWHS( <br>
      * ... <br>
      * row.getCell(7).getDateCellValue() <br>
      * ...

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.5.4</version>
+    <version>1.6</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -56,6 +56,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <description>
+        1.6. 25.4.2016 11:28 - Ispravka greške, i refak. klaseExcelDobri.
+                          - Greška : nije uključen metod setUpbeanList(), pa nije došlo do parsiranja.
         1.5.4 22.4.2016 13:56 - Izmene u konstruktoru sa dugmićima na footer-u.
         1.5.3 20.4.2016 7:26 - Početak građenja nove funkcionalnosti za zaključavanje polja u formi.
         1.5.2 20.4.2016 7:10 - Uvođenje funkcionalnosti za zaključavanje polja u layout-u unutar Windows3 klase.

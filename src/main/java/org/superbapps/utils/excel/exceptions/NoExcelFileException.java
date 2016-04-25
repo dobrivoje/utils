@@ -12,7 +12,7 @@ package org.superbapps.utils.excel.exceptions;
 public class NoExcelFileException extends Exception {
 
     public NoExcelFileException() {
-        super("File is not Excel 2003 or greater version !");
+        super("File is either not an Excel 2003+ version, or is with corrupted structure !");
     }
 
     public NoExcelFileException(String message) {
