@@ -56,6 +56,7 @@ public abstract class ExcelDobri {
      * @throws Exception
      */
     public ExcelDobri(String filePath, int sheetIndex, int skipHeaderLines, long skipBottomLines, IExcelSupport excelSupport) throws Exception {
+        this.ind = 0;
         this.filePath = filePath;
         this.skipHeaderLines = skipHeaderLines == -1 ? 0 : skipHeaderLines;
         this.skipBottomLines = skipBottomLines == -1L ? Long.MAX_VALUE : skipBottomLines;
@@ -63,6 +64,7 @@ public abstract class ExcelDobri {
         this.excelSupport = excelSupport;
 
         this.sheet = getWorkbook(filePath).getSheetAt(sheetIndex);
+        setUpBeanList();
     }
 
     /**
@@ -123,9 +125,7 @@ public abstract class ExcelDobri {
             default:
                 throw new NoExcelFileException();
         }
-        
-        setUpBeanList();
-        
+
         return wb;
     }
 
