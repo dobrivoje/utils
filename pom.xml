@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.6.2</version>
+    <version>1.6.3</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -56,6 +56,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <description>
+        1.6.3. 26.4.2016 7:18 - Kozmetika,...
+
         1.6.2. 25.4.2016 17:30 - u View_Dashboard-u, otključavanje gornja dva dugmeta
               kako bismo ih iskoristili u nasleđenim klasama.
 

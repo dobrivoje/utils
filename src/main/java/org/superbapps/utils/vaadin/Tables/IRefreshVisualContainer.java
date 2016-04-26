@@ -7,7 +7,7 @@ package org.superbapps.utils.vaadin.Tables;
 
 /**
  *
- * @author Dobri
+ * @author root
  */
 public interface IRefreshVisualContainer {
 

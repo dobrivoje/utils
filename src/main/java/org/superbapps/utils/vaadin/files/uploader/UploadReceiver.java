@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  *
- * @author Dobri
+ * @author root
  */
 public class UploadReceiver implements Receiver, ProgressListener, StartedListener, FinishedListener, FailedListener {
 

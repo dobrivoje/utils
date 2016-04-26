@@ -7,7 +7,7 @@ package org.superbapps.utils.common.Enums;
 
 /**
  *
- * @author Dobri
+ * @author root
  */
 public enum GalleryIdentifications {
 

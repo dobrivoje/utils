@@ -9,7 +9,7 @@ import com.ibm.icu.text.Transliterator;
 
 /**
  *
- * @author Dobrivoje
+ * @author rootvoje
  *
  * Klasa za bezbednu konverziju ćirilice u englesku latinicu ! Ulazni stringmože
  * biti YU latinica, ili ćirilica. Izlazni string je uvek eng. latinica.

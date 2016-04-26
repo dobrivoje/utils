@@ -25,7 +25,7 @@ import static org.superbapps.utils.vaadin.Views.View_Dashboard.NotificationsButt
 
 /**
  *
- * @author Dobri
+ * @author root
  */
 public class WindowForm3 extends Window {
 

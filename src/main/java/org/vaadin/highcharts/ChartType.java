@@ -7,7 +7,7 @@ package org.vaadin.highcharts;
 
 /**
  *
- * @author Dobri
+ * @author root
  */
 public enum ChartType {
 

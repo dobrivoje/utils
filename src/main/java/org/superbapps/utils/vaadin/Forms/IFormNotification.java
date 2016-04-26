@@ -7,7 +7,7 @@ package org.superbapps.utils.vaadin.Forms;
 
 /**
  *
- * @author Dobri
+ * @author root
  */
 public interface IFormNotification {
 

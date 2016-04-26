@@ -17,7 +17,7 @@ import static org.superbapps.utils.vaadin.MyWindows.WindowFormProp.WINDOW_WIDTH_
 
 /**
  *
- * @author Dobri
+ * @author root
  * @param <T>
  */
 public class CustomTree<T> extends Tree {

@@ -7,7 +7,7 @@ package org.superbapps.utils.vaadin.Exceptions;
 
 /**
  *
- * @author Dobri
+ * @author root
  */
 public class CustomTreeNodesEmptyException extends Exception {
 
