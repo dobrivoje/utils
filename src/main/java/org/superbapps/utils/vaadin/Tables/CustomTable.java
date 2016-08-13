@@ -9,7 +9,7 @@ import com.vaadin.ui.Table;
 
 /**
  *
- * @author root
+ * @author д06ри
  */
 public class CustomTable extends Table implements IRefreshVisualContainer {
 

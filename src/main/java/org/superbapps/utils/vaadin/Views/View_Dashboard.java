@@ -82,6 +82,25 @@ public abstract class View_Dashboard extends Panel implements View {
 
         root.addComponent(buildHeader(dashBoardTitle));
     }
+    
+    protected View_Dashboard(String dashBoardTitle, Component...headerComponents) {
+        addStyleName(ValoTheme.PANEL_BORDERLESS);
+        setSizeFull();
+
+        root.setSizeFull();
+        root.setMargin(true);
+        root.addStyleName("dashboard-view");
+        setContent(root);
+        Responsive.makeResponsive(root);
+
+        viewMaximized = false;
+
+        subPanels = new ArrayList<>();
+        dynamicPanels = new ArrayList<>();
+
+        root.addComponents(headerComponents);
+    }
+    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="DashBoard Header">
@@ -114,19 +133,23 @@ public abstract class View_Dashboard extends Panel implements View {
         return result;
     }
 
-    private Button buildEditButton() {
+    protected final Button buildEditButton() {
+        return buildEditButton("Edit Dashboard", (final Button.ClickEvent event) -> {
+        });
+    }
+
+    protected final Button buildEditButton(String btnDesc, Button.ClickListener clickListener) {
         Button result = new Button();
         result.setId(EDIT_ID);
         result.setIcon(FontAwesome.EDIT);
         result.addStyleName("icon-edit");
         result.addStyleName(ValoTheme.BUTTON_ICON_ONLY);
-        result.setDescription("Edit Dashboard");
-        result.addClickListener((final Button.ClickEvent event) -> {
-        });
+        result.setDescription(btnDesc);
+        result.addClickListener(clickListener);
         return result;
     }
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Wrappers, builders, popups windows">
     protected Component createContentWrapper(final Component content, Map<String, MenuBar.Command> panelCommands) {
         final CssLayout slot = new CssLayout();

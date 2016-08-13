@@ -14,7 +14,7 @@ import org.superbapps.utils.common.Enums.Statuses;
 
 /**
  *
- * @author root
+ * @author д06ри
  */
 public class StatusLabel extends Label {
 

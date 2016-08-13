@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author root
+ * @author д06ри
  */
 public class Table_GEN<T> extends Table implements IRefreshVisualContainer {
 

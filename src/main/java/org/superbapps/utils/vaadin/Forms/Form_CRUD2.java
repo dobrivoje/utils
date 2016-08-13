@@ -114,10 +114,15 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
         }
     }
 
+    /**
+     * Add annotated UI elements to this form
+     */
     protected void addBeansToForm() {
         for (Component c : fieldGroup.getFields()) {
             addComponent(c);
         }
+
+        addAdditionalBeansToForm();
 
         if (defaultCRUDButtonOnForm) {
             crudButton.setCaption(btnCaption);
@@ -127,6 +132,11 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
         }
 
     }
+
+    /**
+     * Add non-annotated, additional UI elements to this form.
+     */
+    protected abstract void addAdditionalBeansToForm();
 
     /**
      * Inicijalizacija svojstava polja na formi i/ili njihovih vrednosti.

@@ -7,7 +7,7 @@ package org.superbapps.utils.common.Enums;
 
 /**
  *
- * @author root
+ * @author д06ри
  */
 public enum ImageTypes {
 

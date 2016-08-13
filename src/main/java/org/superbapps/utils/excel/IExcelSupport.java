@@ -13,7 +13,7 @@ import org.superbapps.utils.excel.exceptions.ExcelGenException;
 
 /**
  *
- * @author root
+ * @author д06ри
  */
 public interface IExcelSupport {
 

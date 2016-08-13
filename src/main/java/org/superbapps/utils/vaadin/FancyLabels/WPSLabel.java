@@ -14,7 +14,7 @@ import org.superbapps.utils.common.Enums.WorkingPlansStatuses;
 
 /**
  *
- * @author root
+ * @author д06ри
  */
 public class WPSLabel extends Label {
 

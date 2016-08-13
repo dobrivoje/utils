@@ -12,7 +12,7 @@ import com.vaadin.ui.Layout;
  * Can be used in situations when necessary to lock form fields, eg. when
  * implementing access rights to form, for example.
  *
- * @author root
+ * @author д06ри
  */
 public interface ILayoutLockable extends Layout {
 

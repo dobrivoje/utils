@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.6.3</version>
+    <version>1.6.6</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -15,7 +15,7 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>2.5</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -33,13 +33,30 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-server</artifactId>
-            <version>7.6.4</version>
+            <version>7.6.8</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.vaadin.highcharts</groupId>
             <artifactId>highcharts</artifactId>
             <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.vaadin.addon</groupId>
+            <artifactId>confirmdialog</artifactId>
+            <version>2.1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     
@@ -55,26 +72,32 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    <description>
+    <description>        1.6.6. 13.8.2016 - Kozmetika
+        1.6.5. 29.7.2016 19:44 - Uvođenje u Form_CRUD2 klasu da bi se inicijalizovale UI
+                                 komponente koje nisu annotated, odn. koje ne pripadaju
+                                 bean-u "T" klase Form_CRUD2
+
+        1.6.4. 26.7.2016 7:28 - Vaadin 7.6.8,..
+
         1.6.3. 26.4.2016 7:18 - Kozmetika,...
 
         1.6.2. 25.4.2016 17:30 - u View_Dashboard-u, otključavanje gornja dva dugmeta
-              kako bismo ih iskoristili u nasleđenim klasama.
+        kako bismo ih iskoristili u nasleđenim klasama.
 
         1.6.1. 25.4.2016 12:55 - A sad stvarno ispravka greške
-              - Mislio sam da sam rešio problem, ali me je "tmarginwhs_test" zezao jer se izvršavao svaki put
-                kada je rađen build (uključen @test,..) pa me je zavaravao :) SRAMOTA !
+        - Mislio sam da sam rešio problem, ali me je "tmarginwhs_test" zezao jer se izvršavao svaki put
+        kada je rađen build (uključen @test,..) pa me je zavaravao :) SRAMOTA !
         1.6. 25.4.2016 11:28 - Ispravka greške, i refak. klaseExcelDobri.
-                          - Greška : nije uključen metod setUpbeanList(), pa nije došlo do parsiranja.
+        - Greška : nije uključen metod setUpbeanList(), pa nije došlo do parsiranja.
         1.5.4 22.4.2016 13:56 - Izmene u konstruktoru sa dugmićima na footer-u.
         1.5.3 20.4.2016 7:26 - Početak građenja nove funkcionalnosti za zaključavanje polja u formi.
         1.5.2 20.4.2016 7:10 - Uvođenje funkcionalnosti za zaključavanje polja u layout-u unutar Windows3 klase.
-                                            - novi interfejs ILayoutLockable - početak razvoja.  
+        - novi interfejs ILayoutLockable - početak razvoja.  
         1.5.2 19.4.2016 21:50 - ispravak greške u MyWindow klasi  
         1.5.1 19.4.2016 20:39 - org.superbapps.utils / excel, vaadin zbog ostatka starih zapisa
-                                             "org.supperb.apps".
+        "org.supperb.apps".
         1.5. 18.4.2016 22:37 - Refaktorizacija paketa vaadin.highcharts u : org.vaadin.highcharts !
-                                             Zbog ove greške se nisu prikazivali highchart-ovi !!!
+        Zbog ove greške se nisu prikazivali highchart-ovi !!!
         1.2 - Refaktorizacija !
         - Uvođenje common folder-a, i ubacivanje oubičajenih i deljenih klasa
         - Izmena naziva za translator

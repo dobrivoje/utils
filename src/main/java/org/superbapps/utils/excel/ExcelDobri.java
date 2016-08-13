@@ -19,7 +19,7 @@ import org.superbapps.utils.excel.exceptions.NoExcelFileException;
 
 /**
  *
- * @author root
+ * @author д06ри
  */
 public abstract class ExcelDobri {
 

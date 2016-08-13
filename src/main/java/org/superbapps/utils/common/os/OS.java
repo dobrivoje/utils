@@ -7,7 +7,7 @@ package org.superbapps.utils.common.os;
 
 /**
  *
- * @author root
+ * @author д06ри
  */
 public class OS {
 

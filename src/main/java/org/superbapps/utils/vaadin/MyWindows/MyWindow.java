@@ -16,7 +16,7 @@ import com.vaadin.ui.themes.Reindeer;
 
 /**
  *
- * @author root
+ * @author д06ри
  */
 public class MyWindow extends Window {
 
