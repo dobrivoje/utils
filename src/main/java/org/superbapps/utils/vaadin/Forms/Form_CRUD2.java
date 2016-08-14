@@ -11,12 +11,14 @@ import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
 import java.util.Date;
+import org.superbapps.utils.common.Enums.ErrorMessages;
 import org.superbapps.utils.common.dates.formats.DateFormat;
 import org.superbapps.utils.vaadin.Trees.IUpdateData;
 
 public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T> {
 
     public static final String APP_DATE_FORMAT = DateFormat.DATE_FORMAT_SRB.toString();
+    public static final String FIELD_NOT_EMPTY_ERROR_MSG = ErrorMessages.FIELD_NOT_EMPTY_ERROR_MSG.toString();
 
     protected FieldGroup fieldGroup;
     protected BeanItem<T> beanItem;

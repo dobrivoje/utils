@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.6.6</version>
+    <version>1.6.7</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -72,7 +72,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    <description>        1.6.6. 13.8.2016 - Kozmetika
+    <description>        1.6.7. 14.8.2016 - Dodatak enum-a sa univerzalnim greškama        
+        1.6.6. 13.8.2016 - Kozmetika
         1.6.5. 29.7.2016 19:44 - Uvođenje u Form_CRUD2 klasu da bi se inicijalizovale UI
                                  komponente koje nisu annotated, odn. koje ne pripadaju
                                  bean-u "T" klase Form_CRUD2
