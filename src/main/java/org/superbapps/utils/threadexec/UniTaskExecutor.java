@@ -50,9 +50,9 @@ public class UniTaskExecutor {
             public void run() {
                 try {
                     String execTaskReturnMessage = execTask.get();
-                    execMessage.set(successfullMessage);
+                    // execMessage.set(successfullMessage);
                     msgTitle.set("Obaveštenje");
-                    msgContent.set(execTaskReturnMessage);
+                    msgContent.set(execTaskReturnMessage.isEmpty() ? successfullMessage : successfullMessage + "\n" + execTaskReturnMessage);
 
                     Logger.getLogger(UniTaskExecutor.class.getName()).log(Level.INFO, msgContent.get());
                 } catch (InterruptedException | ExecutionException ex) {
