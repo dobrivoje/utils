@@ -7,6 +7,7 @@ import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.themes.Reindeer;
 import static org.superbapps.utils.common.Enums.CrudOperations.BUTTON_CAPTION_SAVE;
+import static org.superbapps.utils.common.Enums.ErrorMessages.FIELD_NOT_EMPTY_ERROR_MSG;
 import org.superbapps.utils.vaadin.Tables.IRefreshVisualContainer;
 
 public abstract class Form_CRUD<T> extends FormLayout {
@@ -38,9 +39,9 @@ public abstract class Form_CRUD<T> extends FormLayout {
 
                 try {
                     addNewBean(bean);
-                    Notification.show("New " + notification.getNotification() + " Added.", Notification.Type.TRAY_NOTIFICATION);
+                    Notification.show("Novi " + notification.getNotification() + " Dodat.", Notification.Type.TRAY_NOTIFICATION);
                 } catch (Exception ex) {
-                    Notification.show("Error", "Fields indicated by a red star must be provided", Notification.Type.ERROR_MESSAGE);
+                    Notification.show("Greška", FIELD_NOT_EMPTY_ERROR_MSG.toString(), Notification.Type.ERROR_MESSAGE);
                 }
             }
         };
@@ -75,9 +76,9 @@ public abstract class Form_CRUD<T> extends FormLayout {
                         visualContainer.refreshVisualContainer();
                     }
 
-                    Notification.show("Item Updated.", Notification.Type.TRAY_NOTIFICATION);
+                    Notification.show("Podatak ažuriran.", Notification.Type.TRAY_NOTIFICATION);
                 } catch (Exception ex) {
-                    Notification.show("Error", ex.toString(), Notification.Type.ERROR_MESSAGE);
+                    Notification.show("Greška", ex.toString(), Notification.Type.ERROR_MESSAGE);
                 }
             }
         };

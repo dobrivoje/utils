@@ -6,7 +6,7 @@ package org.superbapps.utils.common.Enums;
  */
 public enum ErrorMessages {
 
-    FIELD_NOT_EMPTY_ERROR_MSG("Fields indicated by red stars, must be provided.");
+    FIELD_NOT_EMPTY_ERROR_MSG("Polja označena crvenom zvezdicom ne smeju biti prazna.");
 
     private final String name;
 
