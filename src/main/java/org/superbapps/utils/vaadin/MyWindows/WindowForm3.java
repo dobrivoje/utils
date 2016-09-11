@@ -88,9 +88,9 @@ public class WindowForm3 extends Window {
         actionButton.setVisible(!readOnly);
     }
 
-    public WindowForm3(String caption, Layout formLayout, int formHeight, int formWidth, Unit unit, String imageLocation, Button.ClickListener externalButtonClickListener,
+    public WindowForm3(String caption, Layout formLayout, int winHeight, int winWidth, Unit winUnit, String imageLocation, Button.ClickListener externalButtonClickListener,
             int imgHeight, int imgWidth, boolean readOnly, String buttonStyle, Button... additionalFooterButtons) {
-        init(caption, formLayout, formHeight, formWidth, unit, imageLocation, "Save", externalButtonClickListener, imgHeight, imgWidth, buttonStyle,
+        init(caption, formLayout, winHeight, winWidth, winUnit, imageLocation, "Save", externalButtonClickListener, imgHeight, imgWidth, buttonStyle,
                 additionalFooterButtons);
         actionButton.setVisible(!readOnly);
     }
@@ -117,9 +117,9 @@ public class WindowForm3 extends Window {
         }
     }
 
-    public WindowForm3(String caption, Layout formLayout, int formHeight, int formWidth, Unit unit, String imageLocation,
+    public WindowForm3(String caption, Layout formLayout, int winHeight, int winWidth, Unit winUnit, String imageLocation,
             String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, boolean readOnly) {
-        init(caption, formLayout, formHeight, formWidth, unit, imageLocation, actionButtonCaption, externalButtonClickListener, imgHeight, imgWidth, null);
+        init(caption, formLayout, winHeight, winWidth, winUnit, imageLocation, actionButtonCaption, externalButtonClickListener, imgHeight, imgWidth, null);
 
         if (actionButton != null) {
             actionButton.setVisible(!readOnly);
@@ -168,7 +168,7 @@ public class WindowForm3 extends Window {
                 imgHeight, imgWidth, buttonStyle, additionalFooterButtons);
     }
 
-    private void init(String caption, Layout formLayout, int formHeight, int formWidth, Unit unit, String imageLocation,
+    private void init(String caption, Layout formLayout, int winHeight, int winWidth, Unit winUnit, String imageLocation,
             String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth,
             String buttonStyle, Button... additionalFooterButtons) {
         addStyleName("profile-window");
@@ -177,8 +177,8 @@ public class WindowForm3 extends Window {
 
         setModal(true);
         addCloseShortcut(ShortcutAction.KeyCode.ESCAPE, null);
-        setHeight(formHeight, unit);
-        setWidth(formWidth, unit);
+        setHeight(winHeight, winUnit);
+        setWidth(winWidth, winUnit);
 
         if (actionButtonCaption != null && !actionButtonCaption.isEmpty()) {
             actionButton = new Button(actionButtonCaption);
