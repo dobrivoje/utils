@@ -23,7 +23,7 @@ import static org.superbapps.utils.vaadin.Views.View_Dashboard.NotificationsButt
  */
 public class WinFormWithTabs extends Window {
 
-    //<editor-fold defaultstate="collapsed" desc="properties">
+    //<editor-fold defaultstate="collapsed" desc="infra">
     protected TabSheet detailsWrapper = new TabSheet();
     protected VerticalLayout content = new VerticalLayout();
 
@@ -31,17 +31,17 @@ public class WinFormWithTabs extends Window {
     protected Button closeButton;
     //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Konstruktori">
-    public WinFormWithTabs(String caption, Layout formLayout, int winHeight, int winWidth, Unit winUnit,
+    //<editor-fold defaultstate="collapsed" desc="constructor">
+    public WinFormWithTabs(String caption, Layout formLayout, FontAwesome tabIcon, int winHeight, int winWidth, Unit winUnit,
             String actionButtonCaption, Button.ClickListener externalButtonClickListener,
             String imgLocation, int imgHeight, int imgWidth, boolean readOnly) {
 
         createMainWindow(winHeight, winWidth, winUnit, actionButtonCaption, externalButtonClickListener, readOnly,
-                createTabWithImageAndForm(caption, formLayout, imgLocation, imgHeight, imgWidth, readOnly));
+                createTabWithImageAndForm(caption, formLayout, tabIcon, imgLocation, imgHeight, imgWidth, readOnly));
     }
     //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc="Infra">
+    //<editor-fold defaultstate="collapsed" desc="main methods">
     private void createMainWindow(int winHeight, int winWidth, Unit winUnit,
             String actionButtonCaption, Button.ClickListener externalButtonClickListener,
             boolean readOnly, Component tabComponent) {
@@ -78,20 +78,20 @@ public class WinFormWithTabs extends Window {
         content.addComponent(buildFooter(externalButtonClickListener));
     }
 
-    private Component createTabWithImageAndForm(String caption, Layout formLayout,
+    private Component createTabWithImageAndForm(String caption, Layout formLayout, FontAwesome tabIcon,
             String imageLocation, int imageHeight, int imageWidth, boolean readOnly) {
 
         if (formLayout == null) {
             formLayout = new VerticalLayout();
         }
-        
+
         formLayout.setEnabled(!readOnly);
         formLayout.addStyleName(ValoTheme.FORMLAYOUT_LIGHT);
         formLayout.setSizeUndefined();
 
         HorizontalLayout centralLayout = new HorizontalLayout();
         centralLayout.setCaption(caption);
-        centralLayout.setIcon(FontAwesome.USER);
+        centralLayout.setIcon(tabIcon);
         centralLayout.setSpacing(true);
         centralLayout.setMargin(true);
         centralLayout.addStyleName("profile-form");
@@ -121,6 +121,26 @@ public class WinFormWithTabs extends Window {
         centralLayout.addComponent(picLayout);
         centralLayout.addComponent(formLayout);
         centralLayout.setExpandRatio(formLayout, 1);
+
+        return centralLayout;
+    }
+
+    private Component createTabWithLayout(String caption, Component component, FontAwesome tabIcon, boolean readOnly) {
+
+        VerticalLayout centralLayout = new VerticalLayout();
+        centralLayout.setCaption(caption);
+        centralLayout.setIcon(tabIcon);
+        centralLayout.setSpacing(true);
+        centralLayout.setMargin(true);
+        centralLayout.addStyleName("profile-form");
+
+        if (component == null) {
+            component = new VerticalLayout();
+        }
+        component.setEnabled(!readOnly);
+
+        centralLayout.addComponent(component);
+        centralLayout.setExpandRatio(component, 1);
 
         return centralLayout;
     }
@@ -159,19 +179,43 @@ public class WinFormWithTabs extends Window {
     //</editor-fold>
     //</editor-fold>
 
-    public void addTab(String caption, Layout formLayout, String imageLocation,
+    /**
+     * Multitab window Left part is with image, and right part is with supplied
+     * form
+     *
+     * @param caption
+     * @param formLayout
+     * @param tabIcon
+     * @param imageLocation
+     * @param imageHeight
+     * @param imageWidth
+     * @param readOnly
+     */
+    public void addTab(String caption, Layout formLayout, FontAwesome tabIcon, String imageLocation,
             int imageHeight, int imageWidth, boolean readOnly) {
 
         detailsWrapper.addComponent(
-                createTabWithImageAndForm(caption, formLayout, imageLocation, imageHeight, imageWidth, readOnly)
+                createTabWithImageAndForm(caption, formLayout, tabIcon, imageLocation, imageHeight, imageWidth, readOnly)
         );
     }
 
-    public WinFormWithTabs addNewTab(String caption, Layout formLayout, String imageLocation,
+    /**
+     * Multitab window with component in the tab form
+     *
+     * @param caption
+     * @param component
+     * @param tabIcon
+     * @param readOnly
+     */
+    public void addTab(String caption, Component component, FontAwesome tabIcon, boolean readOnly) {
+        detailsWrapper.addComponent(createTabWithLayout(caption, component, tabIcon, readOnly));
+    }
+
+    public WinFormWithTabs addNewTab(String caption, Layout formLayout, FontAwesome tabIcon, String imageLocation,
             int imageHeight, int imageWidth, boolean readOnly) {
 
         detailsWrapper.addComponent(
-                createTabWithImageAndForm(caption, formLayout, imageLocation, imageHeight, imageWidth, readOnly)
+                createTabWithImageAndForm(caption, formLayout, tabIcon, imageLocation, imageHeight, imageWidth, readOnly)
         );
 
         return this;
