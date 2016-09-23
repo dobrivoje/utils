@@ -33,6 +33,12 @@ public class ColorLabels extends Label {
         setValue(iconCode + " " + property);
     }
 
+//    public ColorLabels(Statuses2 status) {
+//        this();
+//        render(status);
+//        setValue(iconCode + " " + status.toString());
+//    }
+
     private void render(Statuses2 status) {
         iconCode = "<span class=\"v-icon\" style=\"font-family: "
                 + FontAwesome.CIRCLE.getFontFamily()

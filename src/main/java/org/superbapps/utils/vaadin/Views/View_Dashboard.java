@@ -129,7 +129,8 @@ public abstract class View_Dashboard extends Panel implements View {
 
     private NotificationsButton buildNotificationsButton() {
         NotificationsButton result = new NotificationsButton();
-        result.addClickListener(this::openNotificationsPopup);
+        //result.addClickListener(this::openNotificationsPopup);
+        
         return result;
     }
 
@@ -148,8 +149,8 @@ public abstract class View_Dashboard extends Panel implements View {
         result.addClickListener(clickListener);
         return result;
     }
-
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Wrappers, builders, popups windows">
     protected Component createContentWrapper(final Component content, Map<String, MenuBar.Command> panelCommands) {
         final CssLayout slot = new CssLayout();
