@@ -12,33 +12,44 @@ import org.superbapps.utils.common.Enums.Statuses2;
  * @author д06ри
  */
 public class ColorLabels extends Label {
-
+    
     private final Map<Statuses2, Statuses2> color = new HashMap<>();
     private String iconCode;
-
+    
     public ColorLabels() {
         setContentMode(ContentMode.HTML);
         setSizeUndefined();
 
+        // oznake za statuse pokrenutih udaljenih komandi
         color.put(Statuses2.STARTED, Statuses2.APPLE_YELLOW);
         color.put(Statuses2.IN_PROGRESS_COLOR, Statuses2.APPLE_YELLOW);
         color.put(Statuses2.FAILED, Statuses2.APPLE_RED);
         color.put(Statuses2.EXECUTED, Statuses2.APPLE_GREEN);
         color.put(Statuses2.UNKNOWN, Statuses2.UNKNOWN_COLOR);
-    }
 
+        // oznake boja
+        color.put(Statuses2.APPLE_GREEN, Statuses2.APPLE_GREEN);
+        color.put(Statuses2.APPLE_YELLOW, Statuses2.APPLE_YELLOW);
+        color.put(Statuses2.APPLE_RED, Statuses2.APPLE_RED);
+
+        // oznake za šifre
+        color.put(Statuses2.ACTIVE, Statuses2.APPLE_GREEN);
+        color.put(Statuses2.PREVIOUS, Statuses2.APPLE_YELLOW);
+        color.put(Statuses2.NOT_VALID, Statuses2.APPLE_RED);
+    }
+    
     public ColorLabels(Statuses2 status, String property) {
         this();
         render(status);
         setValue(iconCode + " " + property);
+        setDescription(property);
     }
-
-//    public ColorLabels(Statuses2 status) {
-//        this();
-//        render(status);
-//        setValue(iconCode + " " + status.toString());
-//    }
-
+    
+    public ColorLabels(Statuses2 status, String property, String description) {
+        this(status, property);
+        setDescription(description);
+    }
+    
     private void render(Statuses2 status) {
         iconCode = "<span class=\"v-icon\" style=\"font-family: "
                 + FontAwesome.CIRCLE.getFontFamily()

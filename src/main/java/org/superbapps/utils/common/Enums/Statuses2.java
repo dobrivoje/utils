@@ -12,6 +12,9 @@ public enum Statuses2 {
     FAILED("failed"),
     UNKNOWN("unknown"),
     //
+    ACTIVE("active"),
+    PREVIOUS("previous"),
+    NOT_VALID("not valid"),
     //
     OK_COLOR("#2dd085"),
     BAD("#222222"),
