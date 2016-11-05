@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.6.9</version>
+    <version>1.7</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>com.ibm.icu</groupId>
             <artifactId>icu4j</artifactId>
-            <version>57.1</version>
+            <version>58.1</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -21,19 +21,19 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.14</version>
+            <version>3.15</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>3.14</version>
+            <version>3.15</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-server</artifactId>
-            <version>7.6.8</version>
+            <version>7.7.3</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -77,7 +77,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    <description>        1.6.9. 11.9.2016 - Dodavanje WinFormWithTabs klase, koja treba da ima više tabova
+    <description>        1.7. 5.11.2016 - Kozmetika. Update POM-a.        
+        1.6.9. 11.9.2016 - Dodavanje WinFormWithTabs klase, koja treba da ima više tabova
         unutar jednog prozora !
         1.6.8. 28.8.2016 - Dodavanje univerzalnog thread executor-a
         1.6.7. 14.8.2016 - Dodatak enum-a sa univerzalnim greškama        
