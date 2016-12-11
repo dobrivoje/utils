@@ -33,7 +33,7 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-server</artifactId>
-            <version>7.7.3</version>
+            <version>7.7.6</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -77,7 +77,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    <description>        1.7.1  19.11.2016 - Ugrađivanje Properties Factory-ja. Update POM-a.   
+    <description>        1.7.1 . 11.12.2016-POM update
+                    19.11.2016 - Ugrađivanje Properties Factory-ja. Update POM-a.   
         1.7. 5.11.2016 - Kozmetika. Update POM-a.        
         1.6.9. 11.9.2016 - Dodavanje WinFormWithTabs klase, koja treba da ima više tabova
         unutar jednog prozora !
