@@ -2,7 +2,11 @@ package org.superbapps.utils.vaadin.utils;
 
 import com.vaadin.server.Page;
 import com.vaadin.shared.Position;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
+import org.superbapps.utils.common.ObjectHolders.ObjectCounter;
+import org.superbapps.utils.common.hashing.IHash;
 
 /**
  *
@@ -37,6 +41,38 @@ public class VaadinUtils {
         }
 
         showCentralNotif("Greška", s, Notification.Type.ERROR_MESSAGE);
+    }
+
+    public static String createPassword(String p1, String p2, IHash hashBean,
+            Label resultLabel, ObjectCounter oc) {
+
+        String m1 = "Šifre se razlikuju.";
+        String hashedPass = null;
+        resultLabel.setContentMode(ContentMode.HTML);
+
+        if (oc.get() % 2 == 0) {
+            resultLabel.setEnabled(true);
+
+            if (p1.equals(p2) && !p1.isEmpty() && !p2.isEmpty()) {
+                resultLabel.setStyleName("textGreen");
+                resultLabel.setValue("Šifra je ispravna.");
+                resultLabel.setVisible(true);
+
+                hashedPass = hashBean.hash(p2, IHash.$512);
+            } else {
+                resultLabel.setStyleName("textRed");
+                resultLabel.setValue(m1);
+                resultLabel.setVisible(true);
+
+                // throw new Exception(m1);
+            }
+        } else {
+            resultLabel.setStyleName("textRed");
+            resultLabel.setValue(m1);
+            resultLabel.setVisible(true);
+        }
+
+        return hashedPass;
     }
 
 }
