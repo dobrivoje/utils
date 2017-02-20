@@ -75,4 +75,34 @@ public class VaadinUtils {
         return hashedPass;
     }
 
+    public static boolean checkPasswords(String p1, String p2, Label messageLabel, ObjectCounter oc) {
+        String m1 = "Šifre se razlikuju.";
+        messageLabel.setContentMode(ContentMode.HTML);
+
+        if (oc.get() % 2 == 0) {
+            messageLabel.setEnabled(true);
+
+            if (p1.equals(p2) && !p1.isEmpty() && !p2.isEmpty()) {
+                messageLabel.setStyleName("textGreen");
+                messageLabel.setValue("Šifra je ispravna.");
+                messageLabel.setVisible(true);
+
+                return true;
+            } else {
+                messageLabel.setStyleName("textRed");
+                messageLabel.setValue(m1);
+                messageLabel.setVisible(true);
+
+                return false;
+            }
+        } else {
+            messageLabel.setEnabled(false);
+            messageLabel.setVisible(false);
+            messageLabel.removeStyleName("textRed");
+            messageLabel.removeStyleName("textGreen");
+
+            return false;
+        }
+    }
+
 }
