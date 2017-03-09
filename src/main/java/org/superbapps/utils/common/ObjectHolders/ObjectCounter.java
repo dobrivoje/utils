@@ -38,4 +38,20 @@ public class ObjectCounter {
         return ++counter;
     }
 
+    /**
+     * Decrement without returning a result.
+     */
+    public void dec1() {
+        counter--;
+    }
+
+    /**
+     * Decrement with a result.
+     *
+     * @return
+     */
+    public int dec2() {
+        return --counter;
+    }
+
 }
