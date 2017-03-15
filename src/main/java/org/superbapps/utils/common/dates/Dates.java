@@ -7,6 +7,10 @@ package org.superbapps.utils.common.dates;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -134,6 +138,146 @@ public class Dates {
     public void setMonthsBackForth(int months) {
         setMonthsBF(months, false);
     }
+
+    /**
+     * Metod u zavisnosti da li je radni dan ili dan vikenda,<br>
+     * vraća taj radni dan, ili ako je vikend, vraća prvi sledeći ponedeljak<br>
+     *
+     * @param startHour
+     * @return
+     */
+    public static Date getWorkDay(int startHour) {
+        LocalDate ldToday = LocalDate.now();
+
+        switch (ldToday.getDayOfWeek()) {
+            case FRIDAY:
+                ldToday = ldToday.plusDays(3);
+                break;
+            case SATURDAY:
+                ldToday = ldToday.plusDays(2);
+                break;
+            default:
+                // ldToday = ldToday.plusDays(1);
+                break;
+        }
+        LocalDateTime ldt = ldToday.atTime(startHour, 0);
+
+        return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    /**
+     * Vrati dan iz radne nedelje, a ako je dan koji pada u vikdend, vrati prvi
+     * sledeći ponedeljak.
+     *
+     * @param startHour
+     * @return
+     */
+    public static Date getWorkWeekDay(int startHour) {
+        LocalDate ldToday = LocalDate.now();
+
+        switch (ldToday.getDayOfWeek()) {
+            case SATURDAY:
+                ldToday = ldToday.plusDays(2);
+                break;
+            case SUNDAY:
+                ldToday = ldToday.plusDays(1);
+                break;
+        }
+
+        LocalDateTime ldt = ldToday.atTime(startHour, 0);
+
+        return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    /**
+     * Konstruisanje radne nedelje prema postavljenom datumu.<br>
+     * Ako dan pripada radnoj nedelji, prvi i poslednji dani su ponedeljak i
+     * petak tekuće nedelje.<br>
+     * Ako dan pripada vikendu, početni i krajnji dani ponedeljak i petak
+     * sledeće nedelje.<br>
+     *
+     * @param currentDate
+     * @param startHour
+     * @param endHour
+     * @return
+     */
+    public static DateInterval getWorkWeek(Date currentDate, int startHour, int endHour) {
+        int daysDiff = 4;
+        LocalDate ldtEnd;
+
+        LocalDate ldCurrent = currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        switch (ldCurrent.getDayOfWeek()) {
+            case SATURDAY:
+                ldCurrent = ldCurrent.plusDays(2);
+                break;
+            case SUNDAY:
+                ldCurrent = ldCurrent.plusDays(1);
+                break;
+            default:
+                daysDiff = ldCurrent.getDayOfWeek().getValue() - DayOfWeek.MONDAY.getValue();
+                ldCurrent = ldCurrent.minusDays(daysDiff);
+                break;
+        }
+
+        ldtEnd = ldCurrent.plusDays(4);
+
+        LocalDateTime ldts = ldCurrent.atTime(startHour, 0);
+        LocalDateTime ldte = ldtEnd.atTime(startHour, 0);
+
+        Date ds = Date.from(ldts.atZone(ZoneId.systemDefault()).toInstant());
+        Date de = Date.from(ldte.atZone(ZoneId.systemDefault()).toInstant());
+
+        return new DateInterval(ds, de);
+    }
+
+    /**
+     * Konstruisanje radne nedelje prema današnjem datumu.<br>
+     * Ako dan pripada radnoj nedelji, prvi i poslednji dani su ponedeljak i
+     * petak tekuće nedelje.<br>
+     * Ako dan pripada vikendu, početni i krajnji dani ponedeljak i petak
+     * sledeće nedelje.<br>
+     *
+     * @param startHour
+     * @return
+     */
+    public static DateInterval getWorkWeek(int startHour) {
+        return getWorkWeek(new Date(), startHour, 0);
+    }
+
+    //<editor-fold defaultstate="collapsed" desc="DateInterval">
+    public static class DateInterval {
+
+        private Date from;
+        private Date to;
+
+        public DateInterval() {
+            this(new Date(), new Date());
+        }
+
+        public DateInterval(Date from, Date to) {
+            this.from = from;
+            this.to = to;
+        }
+
+        public Date getFrom() {
+            return from;
+        }
+
+        public void setFrom(Date from) {
+            this.from = from;
+        }
+
+        public Date getTo() {
+            return to;
+        }
+
+        public void setTo(Date to) {
+            this.to = to;
+        }
+
+    }
+    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="interni metodi">
     private Date setDMY(int month, int day, int year) {
@@ -293,6 +437,17 @@ public class Dates {
         return "["
                 + from + ", " + to
                 + "]";
+    }
+
+    public static void main(String[] args) {
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DAY_OF_MONTH, -0);
+        Date d = Date.from(c.toInstant());
+
+        System.err.println("dan : " + d);
+
+        DateInterval di = Dates.getWorkWeek(d, 13, 14);
+        System.err.println("od : " + di.from + ", do :" + di.to);
     }
 
 }
