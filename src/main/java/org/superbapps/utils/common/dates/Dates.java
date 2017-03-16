@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.superbapps.utils.common.dates;
 
 import java.text.ParseException;
@@ -183,6 +178,27 @@ public class Dates {
                 ldToday = ldToday.plusDays(2);
                 break;
             case SUNDAY:
+                ldToday = ldToday.plusDays(1);
+                break;
+        }
+
+        LocalDateTime ldt = ldToday.atTime(startHour, 0);
+
+        return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    public static Date getNextWorkWeekDay(int startHour) {
+        LocalDate ldToday = LocalDate.now();
+
+        switch (ldToday.getDayOfWeek()) {
+            case FRIDAY:
+                ldToday = ldToday.plusDays(3);
+                break;
+            case SATURDAY:
+                ldToday = ldToday.plusDays(2);
+                break;
+            case SUNDAY:
+            default:
                 ldToday = ldToday.plusDays(1);
                 break;
         }
