@@ -156,6 +156,9 @@ public class Dates {
             case SATURDAY:
                 ldToday = ldToday.plusDays(2);
                 break;
+            case SUNDAY:
+                ldToday = ldToday.plusDays(1);
+                break;
             default:
                 // ldToday = ldToday.plusDays(1);
                 break;
