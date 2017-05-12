@@ -71,14 +71,14 @@ public class WindowForm extends Window {
         footerLayout.addStyleName(ValoTheme.WINDOW_BOTTOM_TOOLBAR);
         footerLayout.setWidth(100, Unit.PERCENTAGE);
 
-        closeButton.setWidth(150, Unit.PIXELS);
+        closeButton.setWidth(120, Unit.PIXELS);
         closeButton.addStyleName(ValoTheme.BUTTON_DANGER);
         closeButton.addClickListener((Button.ClickEvent event) -> {
             close();
         });
         closeButton.focus();
 
-        actionButton.setWidth(150, Unit.PIXELS);
+        actionButton.setWidth(120, Unit.PIXELS);
 
         if (externalButtonClickListener != null) {
             actionButton.addClickListener(externalButtonClickListener);

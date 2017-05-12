@@ -79,10 +79,10 @@ public class WindowFormProp extends Window {
             close();
         });
         closeButton.setStyleName(ValoTheme.BUTTON_DANGER);
-        closeButton.setWidth(150, Unit.PIXELS);
+        closeButton.setWidth(120, Unit.PIXELS);
 
         actionButton = new Button(actionButtonCaption);
-        actionButton.setWidth(150, Unit.PIXELS);
+        actionButton.setWidth(120, Unit.PIXELS);
         if (externalButtonClickListener != null) {
             actionButton.addClickListener(externalButtonClickListener);
         }

@@ -35,7 +35,7 @@ public class MyWindow extends Window {
             close();
         });
 
-        exitButton.setWidth(150, Unit.PIXELS);
+        exitButton.setWidth(120, Unit.PIXELS);
 
         vL.addComponent(exitButton);
         vL.setComponentAlignment(exitButton, Alignment.MIDDLE_CENTER);

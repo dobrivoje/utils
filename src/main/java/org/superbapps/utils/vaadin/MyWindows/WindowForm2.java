@@ -108,7 +108,7 @@ public class WindowForm2 extends Window {
         footer.setWidth(100, Unit.PERCENTAGE);
 
         Button closeBtn = new Button("Close");
-        closeBtn.setWidth(150, Unit.PIXELS);
+        closeBtn.setWidth(120, Unit.PIXELS);
 
         closeBtn.addStyleName(ValoTheme.BUTTON_DANGER);
         closeBtn.addClickListener((Button.ClickEvent event) -> {

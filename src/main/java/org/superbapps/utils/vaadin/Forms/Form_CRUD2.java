@@ -43,7 +43,7 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
         defaultCRUDButtonOnForm = false;
         readOnly = true;
         crudButton = new Button();
-        crudButton.setWidth(150, Unit.PIXELS);
+        crudButton.setWidth(120, Unit.PIXELS);
     }
 
     public Form_CRUD2(BeanItem<T> beanItem) {
