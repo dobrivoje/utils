@@ -39,11 +39,19 @@ public class WinFormWithTabs extends Window {
         createMainWindow(winHeight, winWidth, winUnit, actionButtonCaption, externalButtonClickListener, readOnly,
                 createTabWithImageAndForm(caption, formLayout, tabIcon, imgLocation, imgHeight, imgWidth, readOnly));
     }
-    //</editor-fold>
 
+    public WinFormWithTabs(String caption, Layout formLayout, FontAwesome tabIcon, int winHeight, int winWidth, Unit winUnit,
+            String actionButtonCaption, String closeButtonCaption, Button.ClickListener externalButtonClickListener,
+            String imgLocation, int imgHeight, int imgWidth, boolean readOnly) {
+
+        createMainWindow(winHeight, winWidth, winUnit, actionButtonCaption, closeButtonCaption, externalButtonClickListener, readOnly,
+                createTabWithImageAndForm(caption, formLayout, tabIcon, imgLocation, imgHeight, imgWidth, readOnly));
+    }
+
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="main methods">
     private void createMainWindow(int winHeight, int winWidth, Unit winUnit,
-            String actionButtonCaption, Button.ClickListener externalButtonClickListener,
+            String actionButtonCaption, String closeButtonCaption, Button.ClickListener externalButtonClickListener,
             boolean readOnly, Component tabComponent) {
 
         addStyleName("profile-window");
@@ -60,7 +68,7 @@ public class WinFormWithTabs extends Window {
             actionButton.setEnabled(!readOnly);
         }
 
-        this.closeButton = new Button("Close");
+        this.closeButton = new Button(closeButtonCaption);
 
         content.setSizeFull();
         content.setMargin(new MarginInfo(true, false, true, false));
@@ -76,6 +84,13 @@ public class WinFormWithTabs extends Window {
 
         detailsWrapper.addComponent(tabComponent);
         content.addComponent(buildFooter(externalButtonClickListener));
+    }
+
+    private void createMainWindow(int winHeight, int winWidth, Unit winUnit,
+            String actionButtonCaption, Button.ClickListener externalButtonClickListener,
+            boolean readOnly, Component tabComponent) {
+
+        createMainWindow(winHeight, winWidth, winUnit, actionButtonCaption, "Zatvori", externalButtonClickListener, readOnly, tabComponent);
     }
 
     private Component createTabWithImageAndForm(String caption, Layout formLayout, FontAwesome tabIcon,

@@ -126,6 +126,15 @@ public class WindowForm3 extends Window {
         }
     }
 
+    public WindowForm3(String caption, Layout formLayout, int winHeight, int winWidth, Unit winUnit, String imageLocation,
+            String actionButtonCaption, String closeButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, boolean readOnly) {
+        init(caption, formLayout, winHeight, winWidth, winUnit, imageLocation, actionButtonCaption, closeButtonCaption, externalButtonClickListener, imgHeight, imgWidth, null);
+
+        if (actionButton != null) {
+            actionButton.setVisible(!readOnly);
+        }
+    }
+
     public WindowForm3(String caption, Layout formLayout, int formHeight, int formWidth, String imageLocation,
             String actionButtonCaption, Button.ClickListener externalButtonClickListener,
             int imgWidth, int imgHeight, boolean readOnly) {
@@ -168,8 +177,15 @@ public class WindowForm3 extends Window {
                 imgHeight, imgWidth, buttonStyle, additionalFooterButtons);
     }
 
+    private void init(String caption, Layout formLayout, String imageLocation, String actionButtonCaption, String closeButtonCaption,
+            Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth, String buttonStyle,
+            Button... additionalFooterButtons) {
+        init(caption, formLayout, 70, 60, Unit.PERCENTAGE, imageLocation, actionButtonCaption, closeButtonCaption, externalButtonClickListener,
+                imgHeight, imgWidth, buttonStyle, additionalFooterButtons);
+    }
+
     private void init(String caption, Layout formLayout, int winHeight, int winWidth, Unit winUnit, String imageLocation,
-            String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth,
+            String actionButtonCaption, String closeButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth,
             String buttonStyle, Button... additionalFooterButtons) {
         addStyleName("profile-window");
         setId(ID);
@@ -184,7 +200,7 @@ public class WindowForm3 extends Window {
             actionButton = new Button(actionButtonCaption);
         }
 
-        closeButton = new Button("Close");
+        closeButton = new Button(closeButtonCaption);
 
         content.setSizeFull();
         content.setMargin(new MarginInfo(true, false, true, false));
@@ -199,6 +215,14 @@ public class WindowForm3 extends Window {
 
         detailsWrapper.addComponent(buildFormTab(caption, formLayout, imageLocation, imgWidth, imgHeight));
         content.addComponent(buildFooter(externalButtonClickListener, buttonStyle, additionalFooterButtons));
+    }
+
+    private void init(String caption, Layout formLayout, int winHeight, int winWidth, Unit winUnit, String imageLocation,
+            String actionButtonCaption, Button.ClickListener externalButtonClickListener, int imgHeight, int imgWidth,
+            String buttonStyle, Button... additionalFooterButtons) {
+
+        init(caption, formLayout, winHeight, winWidth, winUnit, imageLocation,
+                actionButtonCaption, "Zatvori", externalButtonClickListener, imgHeight, imgWidth, buttonStyle, additionalFooterButtons);
     }
     //</editor-fold>
 
