@@ -19,4 +19,8 @@ public class Utils {
         return str;
     }
 
+    public static String getLeadingUpperCapital(String str) {
+        return str.substring(0, 1).toUpperCase()
+                .concat(str.substring(1).toLowerCase());
+    }
 }
