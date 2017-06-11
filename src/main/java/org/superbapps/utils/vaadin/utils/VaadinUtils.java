@@ -33,7 +33,7 @@ public class VaadinUtils {
         String m = ex.getMessage().toLowerCase(), s = "";
 
         if (m.contains("violates unique constraint")) {
-            s = "Ovaj zapis već postoji !";
+            s = "Ovaj podatak već postoji !";
         } else if (m.contains("violates not-null constraint")) {
             s = "Oba podatka moraju biti izabrana !";
         } else if (m.contains("commit failed")) {
