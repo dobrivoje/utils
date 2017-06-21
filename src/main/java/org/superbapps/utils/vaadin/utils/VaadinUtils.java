@@ -6,6 +6,7 @@ import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import org.superbapps.utils.common.ObjectHolders.ObjectCounter;
+import org.superbapps.utils.common.exceptions.NoPriceException;
 import org.superbapps.utils.common.hashing.IHash;
 
 /**
@@ -38,6 +39,8 @@ public class VaadinUtils {
             s = "Oba podatka moraju biti izabrana !";
         } else if (m.contains("commit failed")) {
             s = "Polja označena zvezdicom moraju biti popunjena !";
+        } else if (ex instanceof NoPriceException) {
+            s = "Proizvod nema cenu.";
         }
 
         showCentralNotif("Greška", s, Notification.Type.ERROR_MESSAGE);
@@ -78,7 +81,7 @@ public class VaadinUtils {
     public static boolean checkPasswords(String p1, String p2, Label messageLabel) {
         String m1 = "Šifre se razlikuju.";
         boolean f;
-        
+
         messageLabel.setContentMode(ContentMode.HTML);
 
         if (p1.equals(p2) && !p1.isEmpty() && !p2.isEmpty()) {

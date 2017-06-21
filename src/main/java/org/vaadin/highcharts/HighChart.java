@@ -1,7 +1,6 @@
 package org.vaadin.highcharts;
 
 import com.vaadin.annotations.JavaScript;
-import org.vaadin.highcharts.AbstractHighChart;
 
 @JavaScript({"jquery.js", "highcharts.js", "exporting.js",
     "highcharts-more.js", "highcharts-3d", "piegradinetcolor.js"})
