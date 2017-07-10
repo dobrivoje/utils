@@ -6,7 +6,8 @@
     <artifactId>utils-all</artifactId>
     <version>1.7.6</version>
     <packaging>jar</packaging>
-    
+    <name>Utils</name>
+
     <dependencies>
         <dependency>
             <groupId>com.ibm.icu</groupId>
@@ -83,7 +84,7 @@
 
         1.7.6 . Exceptions refaktorisanje
         1.7.1 . 11.12.2016-POM update
-                    19.11.2016 - Ugrađivanje Properties Factory-ja. Update POM-a.   
+        19.11.2016 - Ugrađivanje Properties Factory-ja. Update POM-a.   
         1.7. 5.11.2016 - Kozmetika. Update POM-a.        
         1.6.9. 11.9.2016 - Dodavanje WinFormWithTabs klase, koja treba da ima više tabova
         unutar jednog prozora !
@@ -122,6 +123,6 @@
         1.1.2 - Izmena naziva Artifact Id-a : iz util, u Util :)
         1.1.1 - Izmena naziva Artifact Id-a : iz util, u UTIL
         1.1 - Refaktorizacija
-        1.0 - Init</description>
-    <name>Utils</name>
+        1.0 - Init
+    </description>
 </project>
