@@ -84,7 +84,7 @@ public class VaadinUtils {
 
         messageLabel.setContentMode(ContentMode.HTML);
 
-        if (p1.equals(p2) && !p1.isEmpty() && !p2.isEmpty()) {
+        if (!p1.isEmpty() && !p2.isEmpty() && p1.equals(p2) ) {
             messageLabel.setStyleName("textGreen");
             messageLabel.setValue("Šifra je ispravna.");
             messageLabel.setVisible(true);
