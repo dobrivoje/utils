@@ -1,5 +1,8 @@
 package org.superbapps.utils.common;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author д06ри, dobri7@gmail.com
@@ -11,9 +14,13 @@ public class Utils {
     }
 
     public static String getShorterString(String str, int maxChars) {
-        if (str.length() > maxChars) {
-            str = str.substring(0, maxChars);
-            str = str.substring(0, str.lastIndexOf(" ")).concat("...");
+        try {
+            if (str.length() > maxChars) {
+                str = str.substring(0, maxChars);
+                str = str.substring(0, str.lastIndexOf(" ")).concat("...");
+            }
+        } catch (Exception e) {
+            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, "Gre\u0161ka za string=\"{0}\"", str);
         }
 
         return str;
