@@ -5,7 +5,6 @@ import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Notification;
-import com.vaadin.ui.themes.Reindeer;
 import static org.superbapps.utils.common.Enums.CrudOperations.BUTTON_CAPTION_SAVE;
 import static org.superbapps.utils.common.Enums.ErrorMessages.FIELD_NOT_EMPTY_ERROR_MSG;
 import org.superbapps.utils.vaadin.Tables.IRefreshVisualContainer;
@@ -22,7 +21,6 @@ public abstract class Form_CRUD<T> extends FormLayout {
     protected Form_CRUD() {
         setSizeFull();
         setMargin(true);
-        setStyleName(Reindeer.LAYOUT_BLACK);
     }
 
     public Form_CRUD(final T bean, final IFormNotification notification) {

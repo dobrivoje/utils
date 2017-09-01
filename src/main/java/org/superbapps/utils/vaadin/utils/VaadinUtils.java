@@ -2,7 +2,7 @@ package org.superbapps.utils.vaadin.utils;
 
 import com.vaadin.server.Page;
 import com.vaadin.shared.Position;
-import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import org.superbapps.utils.common.ObjectHolders.ObjectCounter;
