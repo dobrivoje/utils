@@ -41,6 +41,8 @@ public class VaadinUtils {
             s = "Polja označena zvezdicom moraju biti popunjena !";
         } else if (ex instanceof NoPriceException) {
             s = "Proizvod nema cenu.";
+        } else {
+            s = ex.getMessage();
         }
 
         showCentralNotif("Greška", s, Notification.Type.ERROR_MESSAGE);
@@ -84,7 +86,7 @@ public class VaadinUtils {
 
         messageLabel.setContentMode(ContentMode.HTML);
 
-        if (!p1.isEmpty() && !p2.isEmpty() && p1.equals(p2) ) {
+        if (!p1.isEmpty() && !p2.isEmpty() && p1.equals(p2)) {
             messageLabel.setStyleName("textGreen");
             messageLabel.setValue("Šifra je ispravna.");
             messageLabel.setVisible(true);
