@@ -30,7 +30,7 @@ public class VaadinUtils {
         success.show(Page.getCurrent());
     }
 
-    public static void checkExceptionError(Exception ex) {
+    public static void checkExceptionError(String naslov, Exception ex) {
         String m = ex.getMessage().toLowerCase(), s = "";
 
         if (m.contains("violates unique constraint")) {
@@ -45,7 +45,11 @@ public class VaadinUtils {
             s = ex.getMessage();
         }
 
-        showCentralNotif("Greška", s, Notification.Type.ERROR_MESSAGE);
+        showCentralNotif(naslov, s, Notification.Type.ERROR_MESSAGE);
+    }
+
+    public static void checkExceptionError(Exception ex) {
+        checkExceptionError("Greška", ex);
     }
 
     public static String createPassword(String p1, String p2, IHash hashBean,
