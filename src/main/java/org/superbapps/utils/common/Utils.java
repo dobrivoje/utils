@@ -1,6 +1,8 @@
 package org.superbapps.utils.common;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -53,4 +55,19 @@ public class Utils {
         return sb.toString();
     }
 
+    public static String makeEmailMessage(String header, String message, String dateTimeFormat) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(header).append(Utils.NL);
+        sb.append("--------------------------------").append(Utils.NL);
+        // sb.append("Korisnik :").append(e.getUserName()).append(Utils.NL);
+        // sb.append("Šifra :").append(e.getPassword()).append(Utils.NL);
+        sb.append(message).append(Utils.NL);
+        sb.append(Utils.NL);
+        sb.append("--------------------------------").append(Utils.NL);
+        sb.append("Datum : ").append(new SimpleDateFormat(dateTimeFormat).format(new Date())).append(Utils.NL);
+        sb.append("--------------------------------").append(Utils.NL);
+        sb.append(Utils.NL);
+
+        return sb.toString();
+    }
 }
