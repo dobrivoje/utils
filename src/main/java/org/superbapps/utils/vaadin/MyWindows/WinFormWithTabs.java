@@ -66,6 +66,7 @@ public class WinFormWithTabs extends Window {
         if (actionButtonCaption != null && !actionButtonCaption.isEmpty()) {
             actionButton = new Button(actionButtonCaption);
             actionButton.setEnabled(!readOnly);
+            actionButton.setVisible(!readOnly);
         }
 
         this.closeButton = new Button(closeButtonCaption);
