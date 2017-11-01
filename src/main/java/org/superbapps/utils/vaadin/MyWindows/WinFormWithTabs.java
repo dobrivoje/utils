@@ -34,25 +34,25 @@ public class WinFormWithTabs extends Window {
     //<editor-fold defaultstate="collapsed" desc="constructor">
     public WinFormWithTabs(String caption, Layout formLayout, FontAwesome tabIcon, int winHeight, int winWidth, Unit winUnit,
             String actionButtonCaption, Button.ClickListener externalButtonClickListener,
-            String imgLocation, int imgHeight, int imgWidth, boolean readOnly) {
+            String imgLocation, int imgHeight, int imgWidth, boolean windowReadOnly, boolean formReadOnly) {
 
-        createMainWindow(winHeight, winWidth, winUnit, actionButtonCaption, externalButtonClickListener, readOnly,
-                createTabWithImageAndForm(caption, formLayout, tabIcon, imgLocation, imgHeight, imgWidth, readOnly));
+        createMainWindow(winHeight, winWidth, winUnit, actionButtonCaption, externalButtonClickListener, windowReadOnly,
+                createTabWithImageAndForm(caption, formLayout, tabIcon, imgLocation, imgHeight, imgWidth, formReadOnly));
     }
 
     public WinFormWithTabs(String caption, Layout formLayout, FontAwesome tabIcon, int winHeight, int winWidth, Unit winUnit,
             String actionButtonCaption, String closeButtonCaption, Button.ClickListener externalButtonClickListener,
-            String imgLocation, int imgHeight, int imgWidth, boolean readOnly) {
+            String imgLocation, int imgHeight, int imgWidth, boolean windowReadOnly, boolean formReadOnly) {
 
-        createMainWindow(winHeight, winWidth, winUnit, actionButtonCaption, closeButtonCaption, externalButtonClickListener, readOnly,
-                createTabWithImageAndForm(caption, formLayout, tabIcon, imgLocation, imgHeight, imgWidth, readOnly));
+        createMainWindow(winHeight, winWidth, winUnit, actionButtonCaption, closeButtonCaption, externalButtonClickListener, windowReadOnly,
+                createTabWithImageAndForm(caption, formLayout, tabIcon, imgLocation, imgHeight, imgWidth, formReadOnly));
     }
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="main methods">
     private void createMainWindow(int winHeight, int winWidth, Unit winUnit,
             String actionButtonCaption, String closeButtonCaption, Button.ClickListener externalButtonClickListener,
-            boolean readOnly, Component tabComponent) {
+            boolean windowReadOnly, Component tabComponent) {
 
         addStyleName("profile-window");
         setId(ID);
@@ -65,8 +65,8 @@ public class WinFormWithTabs extends Window {
 
         if (actionButtonCaption != null && !actionButtonCaption.isEmpty()) {
             actionButton = new Button(actionButtonCaption);
-            actionButton.setEnabled(!readOnly);
-            actionButton.setVisible(!readOnly);
+            actionButton.setEnabled(!windowReadOnly);
+            actionButton.setVisible(!windowReadOnly);
         }
 
         this.closeButton = new Button(closeButtonCaption);
@@ -95,13 +95,13 @@ public class WinFormWithTabs extends Window {
     }
 
     private Component createTabWithImageAndForm(String caption, Layout formLayout, FontAwesome tabIcon,
-            String imageLocation, int imageHeight, int imageWidth, boolean readOnly) {
+            String imageLocation, int imageHeight, int imageWidth, boolean formReadOnly) {
 
         if (formLayout == null) {
             formLayout = new VerticalLayout();
         }
 
-        formLayout.setEnabled(!readOnly);
+        formLayout.setEnabled(!formReadOnly);
         formLayout.addStyleName(ValoTheme.FORMLAYOUT_LIGHT);
         formLayout.setSizeUndefined();
 

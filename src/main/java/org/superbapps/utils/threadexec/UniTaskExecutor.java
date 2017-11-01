@@ -44,26 +44,25 @@ public class UniTaskExecutor {
      */
     public void executeRemoteShellCommand(String successfullMessage, String server, String task) {
         if (ES == null || ES.isTerminated()) {
-            ES = Executors.newSingleThreadExecutor();
+            ES = Executors.newFixedThreadPool(20);
         }
 
-        final Future<String> execTask = ES.submit(this.callable);
+        final Future<String> execTask = ES.submit(callable);
 
-        ES.execute(new Runnable() {
-            @Override
-            public void run() {
+        try {
+            ES.execute(() -> {
                 String errorMsg = "Server [" + server + "], task [" + task + "]\n";
 
                 try {
                     String execTaskReturnMessage = execTask.get();
 
-                    msgTitle.set("Obaveštenje");
+                    // msgTitle.set("Obaveštenje");
                     msgContent.set(execTaskReturnMessage.isEmpty() ? successfullMessage : successfullMessage + "\n" + execTaskReturnMessage);
 
                     Logger.getLogger("#### UniTaskExecutor ---> ").log(Level.INFO, msgContent.get());
 
                 } catch (Exception e) {
-                    msgTitle.set("Greška");
+                    // msgTitle.set("Greška");
                     msgContent.set(errorMsg + e.getMessage());
 
                     Logger.getLogger("#### UniTaskExecutor ---> ").log(Level.INFO, "Greška : {0}", errorMsg + e.getMessage());
@@ -75,8 +74,10 @@ public class UniTaskExecutor {
 
                     n.show(UI.getCurrent().getPage());
                 }
-            }
-        });
+            });
+        } catch (Exception e) {
+            System.err.println("izuzetaaaak : " + e.getMessage());
+        }
 
         ES.shutdown();
     }
