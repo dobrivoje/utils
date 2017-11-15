@@ -32,8 +32,12 @@ public class Utils {
     }
 
     public static String getLeadingUpperCapital(String str) {
-        return str.substring(0, 1).toUpperCase()
-                .concat(str.substring(1).toLowerCase());
+        if (str == null || str.length() < 2) {
+            return "";
+        } else {
+            return str.substring(0, 1).toUpperCase()
+                    .concat(str.substring(1).toLowerCase());
+        }
     }
 
     /**
