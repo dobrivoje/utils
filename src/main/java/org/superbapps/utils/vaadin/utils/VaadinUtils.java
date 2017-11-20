@@ -114,4 +114,11 @@ public class VaadinUtils {
         return f;
     }
 
+    public static boolean isSmallDevice() {
+        return isSmallDevice(800);
+    }
+
+    public static boolean isSmallDevice(int pageWidth) {
+        return Page.getCurrent().getBrowserWindowWidth() < pageWidth;
+    }
 }
