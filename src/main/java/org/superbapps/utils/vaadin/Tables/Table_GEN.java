@@ -15,33 +15,42 @@ import java.util.List;
  */
 public class Table_GEN<T> extends Table implements IRefreshVisualContainer {
 
-    protected final BeanItemContainer<T> beanContainer;
+    // protected final BeanItemContainer<T> beanContainer;
     protected List list;
 
-    public Table_GEN(BeanItemContainer<T> beanContainer, List list) {
-        this.beanContainer = beanContainer;
-        this.list = list;
+    public Table_GEN() {
+        init();
+    }
 
-        setContainerDataSource(beanContainer);
-        updateBeanItemContainer(list);
+    public Table_GEN(BeanItemContainer<T> beanContainer /*, List list*/) {
+        // this.beanContainer = beanContainer;
+        // this.list = list;
+        initWithBeanContainer(beanContainer);
+    }
 
-        setSizeFull();
+    protected void initWithBeanContainer(BeanItemContainer<T> beanContainer1) {
+        setContainerDataSource(beanContainer1);
+        init();
+    }
 
-        setPageLength(20);
-        setCacheRate(4);
-        setSelectable(true);
-        setColumnCollapsingAllowed(true);
-        setImmediate(true);
+    private void init() {
+        // updateBeanItemContainer(list);
+        super.setSizeFull();
+        super.setPageLength(20);
+        super.setCacheRate(4);
+        super.setSelectable(true);
+        super.setColumnCollapsingAllowed(true);
+        super.setImmediate(true);
     }
 
     protected final void updateBeanItemContainer(List list) {
-        this.beanContainer.removeAllItems();
-        this.beanContainer.addAll(list);
+        // this.beanContainer.removeAllItems();
+        // this.beanContainer.addAll(list);
     }
 
     @Override
     public void refreshVisualContainer() {
-        updateBeanItemContainer(this.list);
+        // updateBeanItemContainer(this.list);
         markAsDirtyRecursive();
     }
 }
