@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.superbapps.utils.vaadin.Tables;
 
 import com.vaadin.data.util.BeanItemContainer;
@@ -13,11 +8,10 @@ import java.util.List;
  *
  * @author д06ри
  */
-public class Table_GEN<T> extends Table implements IRefreshVisualContainer {
+public class Table_GEN<T> extends Table {
 
     // protected final BeanItemContainer<T> beanContainer;
-    protected List list;
-
+    // protected List list;
     public Table_GEN() {
         init();
     }
@@ -28,7 +22,7 @@ public class Table_GEN<T> extends Table implements IRefreshVisualContainer {
         initWithBeanContainer(beanContainer);
     }
 
-    protected void initWithBeanContainer(BeanItemContainer<T> beanContainer1) {
+    protected final void initWithBeanContainer(BeanItemContainer<T> beanContainer1) {
         setContainerDataSource(beanContainer1);
         init();
     }
@@ -43,14 +37,13 @@ public class Table_GEN<T> extends Table implements IRefreshVisualContainer {
         super.setImmediate(true);
     }
 
-    protected final void updateBeanItemContainer(List list) {
+    protected void updateBeanItemContainer(List<T> newList, Class<T> type) {
         // this.beanContainer.removeAllItems();
         // this.beanContainer.addAll(list);
+        setContainerDataSource(new BeanItemContainer(type, newList));
+        setVisibleColumns();
     }
 
-    @Override
-    public void refreshVisualContainer() {
-        // updateBeanItemContainer(this.list);
-        markAsDirtyRecursive();
+    protected void setVisibleColumns() {
     }
 }
