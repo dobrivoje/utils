@@ -12,13 +12,13 @@ import org.superbapps.utils.common.Enums.Statuses2;
  * @author д06ри
  */
 public class ColorLabels extends Label {
-    
+
     private final Map<Statuses2, Statuses2> color = new HashMap<>();
     private String iconCode;
-    
+
     public ColorLabels() {
-        setContentMode(ContentMode.HTML);
-        setSizeUndefined();
+        super.setContentMode(ContentMode.HTML);
+        super.setSizeUndefined();
 
         // oznake za statuse pokrenutih udaljenih komandi
         color.put(Statuses2.STARTED, Statuses2.APPLE_YELLOW);
@@ -37,27 +37,31 @@ public class ColorLabels extends Label {
         color.put(Statuses2.PREVIOUS, Statuses2.APPLE_YELLOW);
         color.put(Statuses2.NOT_VALID, Statuses2.APPLE_RED);
     }
-    
+
     public ColorLabels(Statuses2 status, String property) {
         this();
         render(status);
         setValue(iconCode + " " + property);
         setDescription(property);
     }
-    
+
     public ColorLabels(Statuses2 status, String property, String description) {
         this(status, property);
-        setDescription(description);
+        super.setDescription(description);
     }
-    
+
     private void render(Statuses2 status) {
+        render(color.get(status).toString());
+    }
+
+    private void render(String rgbColor) {
         iconCode = "<span class=\"v-icon\" style=\"font-family: "
                 + FontAwesome.CIRCLE.getFontFamily()
                 + ";color:"
-                + color.get(status).toString()
+                + rgbColor
                 + "\">&#x"
                 + Integer
-                .toHexString(FontAwesome.CIRCLE.getCodepoint())
+                        .toHexString(FontAwesome.CIRCLE.getCodepoint())
                 + ";</span>";
     }
 }
