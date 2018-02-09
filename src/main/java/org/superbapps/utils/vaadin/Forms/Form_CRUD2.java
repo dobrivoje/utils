@@ -139,7 +139,8 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
     /**
      * Add non-annotated, additional UI elements to this form.
      */
-    protected abstract void addAdditionalBeansToForm();
+    protected void addAdditionalBeansToForm() {
+    }
 
     /**
      * Inicijalizacija svojstava polja na formi i/ili njihovih vrednosti.
