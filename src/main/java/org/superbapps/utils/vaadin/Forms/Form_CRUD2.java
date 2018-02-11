@@ -23,6 +23,7 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
 
     protected FieldGroup fieldGroup;
     protected BeanItem<T> beanItem;
+    protected T bean;
 
     protected Button crudButton;
     protected Button.ClickListener clickListener;
@@ -37,9 +38,9 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
     protected IUpdateData<T> iUpdateDataListener;
 
     protected Form_CRUD2() {
-        setSizeFull();
-        setMargin(true);
-        setSpacing(true);
+        super.setSizeFull();
+        super.setMargin(true);
+        super.setSpacing(true);
 
         defaultCRUDButtonOnForm = false;
         readOnly = true;
@@ -47,11 +48,33 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
         crudButton.setWidth(120, Unit.PIXELS);
     }
 
-    public Form_CRUD2(BeanItem<T> beanItem) {
+    /**
+     * Ukoliko neki od projekata zavise od ovog konstruktora<br>
+     * imati na umu da je fieldGroup uvwk NULL !!!!
+     *
+     * @param beanItem
+     * @deprecated
+     */
+    @Deprecated
+    private Form_CRUD2(BeanItem<T> beanItem) {
         this();
         this.beanItem = beanItem;
+        this.bean = beanItem.getBean();
     }
 
+    /*
+     * Ukoliko neki od projekata zavise od ovog konstruktora<br>
+     * imati na umu da je fieldGroup uvwk NULL !!!!
+     *
+     * @param beanItem
+     * @deprecated
+        public Form_CRUD2(T bean) {
+        this();
+        this.bean = bean;
+        this.beanItem = new BeanItem<>(bean);
+        this.fieldGroup.setItemDataSource(beanItem);
+    }
+     */
     public Form_CRUD2(FieldGroup fieldGroup) {
         this();
         this.fieldGroup = fieldGroup;
@@ -64,6 +87,13 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
     public void setBeanItem(Item item) {
         fieldGroup.setItemDataSource(item);
         beanItem = (BeanItem<T>) fieldGroup.getItemDataSource();
+        this.bean = beanItem.getBean();
+    }
+
+    public void setBean(T bean) {
+        this.bean = bean;
+        this.beanItem = new BeanItem<>(bean);
+        fieldGroup.setItemDataSource(beanItem);
     }
 
     //<editor-fold defaultstate="collapsed" desc="UpdateDataListener">
