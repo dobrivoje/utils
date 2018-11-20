@@ -1,7 +1,7 @@
 package org.superbapps.utils.vaadin.FancyLabels;
 
 import com.vaadin.server.FontAwesome;
-import com.vaadin.shared.ui.ContentMode;
+import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Label;
 import java.util.HashMap;
 import java.util.Map;

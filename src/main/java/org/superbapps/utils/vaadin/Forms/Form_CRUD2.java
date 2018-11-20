@@ -13,15 +13,17 @@ import com.vaadin.ui.TextField;
 import java.util.Date;
 import org.superbapps.utils.common.Enums.ErrorMessages;
 import org.superbapps.utils.common.dates.formats.DateFormat;
+import org.superbapps.utils.vaadin.Trees.ILayoutLockable;
 import org.superbapps.utils.vaadin.Trees.IUpdateData;
 
-public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T> {
+public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>, ILayoutLockable {
 
     public static final String APP_DATE_FORMAT = DateFormat.DATE_FORMAT_SRB.toString();
     public static final String FIELD_NOT_EMPTY_ERROR_MSG = ErrorMessages.FIELD_NOT_EMPTY_ERROR_MSG.toString();
 
     protected FieldGroup fieldGroup;
     protected BeanItem<T> beanItem;
+    protected T bean;
 
     protected Button crudButton;
     protected Button.ClickListener clickListener;
@@ -36,9 +38,9 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
     protected IUpdateData<T> iUpdateDataListener;
 
     protected Form_CRUD2() {
-        setSizeFull();
-        setMargin(true);
-        setSpacing(true);
+        super.setSizeFull();
+        super.setMargin(true);
+        super.setSpacing(true);
 
         defaultCRUDButtonOnForm = false;
         readOnly = true;
@@ -46,11 +48,33 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
         crudButton.setWidth(120, Unit.PIXELS);
     }
 
-    public Form_CRUD2(BeanItem<T> beanItem) {
+    /**
+     * Ukoliko neki od projekata zavise od ovog konstruktora<br>
+     * imati na umu da je fieldGroup uvwk NULL !!!!
+     *
+     * @param beanItem
+     * @deprecated
+     */
+    @Deprecated
+    private Form_CRUD2(BeanItem<T> beanItem) {
         this();
         this.beanItem = beanItem;
+        this.bean = beanItem.getBean();
     }
 
+    /*
+     * Ukoliko neki od projekata zavise od ovog konstruktora<br>
+     * imati na umu da je fieldGroup uvwk NULL !!!!
+     *
+     * @param beanItem
+     * @deprecated
+        public Form_CRUD2(T bean) {
+        this();
+        this.bean = bean;
+        this.beanItem = new BeanItem<>(bean);
+        this.fieldGroup.setItemDataSource(beanItem);
+    }
+     */
     public Form_CRUD2(FieldGroup fieldGroup) {
         this();
         this.fieldGroup = fieldGroup;
@@ -63,6 +87,13 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
     public void setBeanItem(Item item) {
         fieldGroup.setItemDataSource(item);
         beanItem = (BeanItem<T>) fieldGroup.getItemDataSource();
+        this.bean = beanItem.getBean();
+    }
+
+    public void setBean(T bean) {
+        this.bean = bean;
+        this.beanItem = new BeanItem<>(bean);
+        fieldGroup.setItemDataSource(beanItem);
     }
 
     //<editor-fold defaultstate="collapsed" desc="UpdateDataListener">
@@ -138,7 +169,8 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
     /**
      * Add non-annotated, additional UI elements to this form.
      */
-    protected abstract void addAdditionalBeansToForm();
+    protected void addAdditionalBeansToForm() {
+    }
 
     /**
      * Inicijalizacija svojstava polja na formi i/ili njihovih vrednosti.
@@ -162,4 +194,10 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
         setFieldsFromBean(item);
     }
 
+    @Override
+    public final void setLayoutFieldsLocked(boolean readOnly) {
+        fieldGroup.getFields().stream().forEach(f -> {
+            f.setEnabled(!readOnly);
+        });
+    }
 }

@@ -1,6 +1,6 @@
 package org.superbapps.utils.vaadin.MyWindows;
 
-import com.vaadin.annotations.PropertyId;
+import com.vaadin.data.fieldgroup.PropertyId;
 import com.vaadin.event.ShortcutAction.KeyCode;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.Page;

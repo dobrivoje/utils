@@ -1,6 +1,8 @@
 package org.superbapps.utils.common;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,8 +32,12 @@ public class Utils {
     }
 
     public static String getLeadingUpperCapital(String str) {
-        return str.substring(0, 1).toUpperCase()
-                .concat(str.substring(1).toLowerCase());
+        if (str == null || str.length() < 2) {
+            return "";
+        } else {
+            return str.substring(0, 1).toUpperCase()
+                    .concat(str.substring(1).toLowerCase());
+        }
     }
 
     /**
@@ -49,6 +55,26 @@ public class Utils {
         collection.stream().forEach((elem) -> {
             sb.append(elem).append(NL);
         });
+
+        return sb.toString();
+    }
+
+    public static String makeEmailMessage(String header, String body, String dateTimeFormat) {
+        return makeEmailMessage(header, body, dateTimeFormat, new Date());
+    }
+
+    public static String makeEmailMessage(String header, String body, String dateTimeFormat, Date date) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(header).append(Utils.NL);
+        sb.append("--------------------------------------------").append(Utils.NL);
+        // sb.append("Korisnik :").append(e.getUserName()).append(Utils.NL);
+        // sb.append("Šifra :").append(e.getPassword()).append(Utils.NL);
+        sb.append(body).append(Utils.NL);
+        sb.append(Utils.NL);
+        sb.append("--------------------------------------------").append(Utils.NL);
+        sb.append("Datum : ").append(new SimpleDateFormat(dateTimeFormat).format(date)).append(Utils.NL);
+        sb.append("--------------------------------------------").append(Utils.NL);
+        sb.append(Utils.NL);
 
         return sb.toString();
     }
