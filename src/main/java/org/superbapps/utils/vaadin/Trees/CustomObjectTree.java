@@ -23,6 +23,7 @@ public abstract class CustomObjectTree<T> extends CustomTree<T> implements IRefr
     protected List rootNodeSubList;
 
     protected Form_CRUD2 crudForm;
+    protected Object[] optionalParams;
 
     public CustomObjectTree(String caption, List rootNodes) throws CustomTreeNodesEmptyException, NullPointerException {
         super(caption, rootNodes);
@@ -41,6 +42,12 @@ public abstract class CustomObjectTree<T> extends CustomTree<T> implements IRefr
 
     public CustomObjectTree(List rootNodes, boolean expandRootNodes) throws CustomTreeNodesEmptyException, NullPointerException {
         super("", rootNodes, expandRootNodes);
+        recreateAllSubNodes();
+    }
+
+    public CustomObjectTree(List rootNodes, boolean expandRootNodes, Object... optionalParams) throws CustomTreeNodesEmptyException, NullPointerException {
+        super("", rootNodes, expandRootNodes);
+        this.optionalParams = optionalParams;
         recreateAllSubNodes();
     }
 
