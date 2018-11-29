@@ -4,7 +4,7 @@
     
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.8.2</version>
+    <version>1.9</version>
     <packaging>jar</packaging>
     <name>Utils</name>
 
@@ -12,7 +12,7 @@
         <dependency>
             <groupId>com.ibm.icu</groupId>
             <artifactId>icu4j</artifactId>
-            <version>60.1</version>
+            <version>62.1</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
@@ -22,12 +22,12 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.17</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>3.17</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.vaadin.addon</groupId>
             <artifactId>confirmdialog</artifactId>
-            <version>3.1.1</version>
+            <version>3.2.0</version>
         </dependency>
         <!-- PRAVIO PROBLEM u Form_O_Sifarnik-u ! -->
         <!--        <dependency>
@@ -79,7 +79,6 @@
             <snapshots>
             </snapshots>
         </repository>
-        
     </repositories>
     
     <properties>

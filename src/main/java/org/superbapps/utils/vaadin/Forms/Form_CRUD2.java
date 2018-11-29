@@ -43,7 +43,7 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
         super.setSpacing(true);
 
         defaultCRUDButtonOnForm = false;
-        readOnly = true;
+        readOnly = false;
         crudButton = new Button();
         crudButton.setWidth(120, Unit.PIXELS);
     }
@@ -163,7 +163,22 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
 
             addComponents(crudButton);
         }
+    }
 
+    /**
+     * Inicijalizacija svojstava polja na formi i/ili njihovih vrednosti.
+     */
+    protected abstract void initFields();
+    
+    /**
+     * Koristiti u slučajevima kada su potrebne dodatne gui operacije nad
+     * poljima forme.<br>
+     * Primer : setEnabled... setValue... i slično..
+     */
+    protected void guiPostConstruct() {
+        addAdditionalBeansToForm();
+        addBeansToForm();
+        setLayoutFieldsLocked(readOnly);
     }
 
     /**
@@ -171,11 +186,6 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
      */
     protected void addAdditionalBeansToForm() {
     }
-
-    /**
-     * Inicijalizacija svojstava polja na formi i/ili njihovih vrednosti.
-     */
-    protected abstract void initFields();
 
     /**
      * Naznačiti koja polja su obavezna, čime će se na formi označiti
