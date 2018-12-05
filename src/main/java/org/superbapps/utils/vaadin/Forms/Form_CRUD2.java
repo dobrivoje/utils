@@ -155,7 +155,7 @@ public abstract class Form_CRUD2<T> extends FormLayout implements IUpdateData<T>
             addComponent(c);
         }
 
-        addAdditionalBeansToForm();
+        // addAdditionalBeansToForm();
 
         if (defaultCRUDButtonOnForm) {
             crudButton.setCaption(btnCaption);
