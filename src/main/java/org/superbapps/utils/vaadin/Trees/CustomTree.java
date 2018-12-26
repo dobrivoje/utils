@@ -123,7 +123,7 @@ public class CustomTree<T> extends Tree {
         }
 
         init(caption);
-        setContainerDataSource(container);
+        super.setContainerDataSource(container);
 
         elements.clear();
         elements.addAll(container.getItemIds());
