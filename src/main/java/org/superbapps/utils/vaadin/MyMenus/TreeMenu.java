@@ -5,8 +5,8 @@
  */
 package org.superbapps.utils.vaadin.MyMenus;
 
-import com.vaadin.event.ItemClickEvent;
-import com.vaadin.ui.Tree;
+import com.vaadin.v7.event.ItemClickEvent;
+import com.vaadin.v7.ui.Tree;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;

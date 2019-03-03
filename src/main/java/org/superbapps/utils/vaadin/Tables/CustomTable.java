@@ -5,7 +5,7 @@
  */
 package org.superbapps.utils.vaadin.Tables;
 
-import com.vaadin.ui.Table;
+import com.vaadin.v7.ui.Table;
 
 /**
  *
