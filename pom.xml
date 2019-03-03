@@ -4,7 +4,7 @@
     
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.9</version>
+    <version>2.0</version>
     <packaging>jar</packaging>
     <name>Utils</name>
 
@@ -88,7 +88,9 @@
         <vaadin.version>8.5.2</vaadin.version>
     </properties>
 
-    <description>        1.7.6. 21.6.2017        
+    <description>        2.0 3.3.2019. - Vaadin 8 Migracija
+
+        1.7.6. 21.6.2017        
         1.7.5. 12.5.2017
         1.7.4. 12.3.2017
         1.7.3. 13.2.2017
