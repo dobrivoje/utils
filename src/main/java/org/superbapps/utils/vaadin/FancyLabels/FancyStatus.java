@@ -1,9 +1,9 @@
 package org.superbapps.utils.vaadin.FancyLabels;
 
 import com.vaadin.ui.Alignment;
-import com.vaadin.ui.CheckBox;
+import com.vaadin.v7.ui.CheckBox;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.v7.ui.HorizontalLayout;
 
 /**
  *

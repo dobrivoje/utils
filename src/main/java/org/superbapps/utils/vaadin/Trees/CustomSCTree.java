@@ -5,7 +5,7 @@
  */
 package org.superbapps.utils.vaadin.Trees;
 
-import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.v7.data.util.BeanItemContainer;
 import org.superbapps.utils.vaadin.Exceptions.CustomTreeNodesEmptyException;
 import java.util.List;
 

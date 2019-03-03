@@ -5,13 +5,13 @@
  */
 package org.superbapps.utils.vaadin.files.uploader;
 
-import com.vaadin.ui.ProgressBar;
-import com.vaadin.ui.Upload;
-import com.vaadin.ui.Upload.FailedListener;
-import com.vaadin.ui.Upload.FinishedListener;
-import com.vaadin.ui.Upload.ProgressListener;
-import com.vaadin.ui.Upload.Receiver;
-import com.vaadin.ui.Upload.StartedListener;
+import com.vaadin.v7.ui.ProgressBar;
+import com.vaadin.v7.ui.Upload;
+import com.vaadin.v7.ui.Upload.FailedListener;
+import com.vaadin.v7.ui.Upload.FinishedListener;
+import com.vaadin.v7.ui.Upload.ProgressListener;
+import com.vaadin.v7.ui.Upload.Receiver;
+import com.vaadin.v7.ui.Upload.StartedListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

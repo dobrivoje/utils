@@ -5,10 +5,10 @@
  */
 package org.superbapps.utils.vaadin.Trees;
 
-import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.v7.data.util.BeanItemContainer;
 import com.vaadin.ui.Panel;
-import com.vaadin.ui.Tree;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.v7.ui.Tree;
+import com.vaadin.v7.ui.VerticalLayout;
 import org.superbapps.utils.vaadin.Exceptions.CustomTreeNodesEmptyException;
 import java.util.ArrayList;
 import java.util.List;

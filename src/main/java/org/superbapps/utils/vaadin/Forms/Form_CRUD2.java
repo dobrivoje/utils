@@ -1,15 +1,15 @@
 package org.superbapps.utils.vaadin.Forms;
 
-import com.vaadin.data.Item;
-import com.vaadin.data.fieldgroup.FieldGroup;
-import com.vaadin.data.util.BeanItem;
+import com.vaadin.v7.data.Item;
+import com.vaadin.v7.data.fieldgroup.FieldGroup;
+import com.vaadin.v7.data.util.BeanItem;
 import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.DateField;
+import com.vaadin.v7.ui.DateField;
 import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.TextArea;
-import com.vaadin.ui.TextField;
+import com.vaadin.v7.ui.TextArea;
+import com.vaadin.v7.ui.TextField;
 import java.util.Date;
 import org.superbapps.utils.common.Enums.ErrorMessages;
 import org.superbapps.utils.common.dates.formats.DateFormat;

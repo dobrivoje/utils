@@ -1,7 +1,7 @@
 package org.superbapps.utils.vaadin.Tables;
 
-import com.vaadin.data.util.BeanItemContainer;
-import com.vaadin.ui.Table;
+import com.vaadin.v7.data.util.BeanItemContainer;
+import com.vaadin.v7.ui.Table;
 import java.util.List;
 
 /**

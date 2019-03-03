@@ -5,7 +5,7 @@
  */
 package org.superbapps.utils.vaadin.validators;
 
-import com.vaadin.data.Validator;
+import com.vaadin.v7.data.Validator;
 
 /**
  *
