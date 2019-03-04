@@ -1,7 +1,7 @@
 package org.superbapps.utils.vaadin.MyWindows;
 
 import com.vaadin.event.ShortcutAction;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Responsive;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.ui.MarginInfo;
@@ -32,7 +32,7 @@ public class WinFormWithTabs extends Window {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="constructor">
-    public WinFormWithTabs(String caption, Layout formLayout, FontAwesome tabIcon, int winHeight, int winWidth, Unit winUnit,
+    public WinFormWithTabs(String caption, Layout formLayout, VaadinIcons tabIcon, int winHeight, int winWidth, Unit winUnit,
             String actionButtonCaption, Button.ClickListener externalButtonClickListener,
             String imgLocation, int imgHeight, int imgWidth, boolean windowReadOnly, boolean formReadOnly) {
 
@@ -40,7 +40,7 @@ public class WinFormWithTabs extends Window {
                 createTabWithImageAndForm(caption, formLayout, tabIcon, imgLocation, imgHeight, imgWidth, formReadOnly));
     }
 
-    public WinFormWithTabs(String caption, Layout formLayout, FontAwesome tabIcon, int winHeight, int winWidth, Unit winUnit,
+    public WinFormWithTabs(String caption, Layout formLayout, VaadinIcons tabIcon, int winHeight, int winWidth, Unit winUnit,
             String actionButtonCaption, String closeButtonCaption, Button.ClickListener externalButtonClickListener,
             String imgLocation, int imgHeight, int imgWidth, boolean windowReadOnly, boolean formReadOnly) {
 
@@ -94,7 +94,7 @@ public class WinFormWithTabs extends Window {
         createMainWindow(winHeight, winWidth, winUnit, actionButtonCaption, "Zatvori", externalButtonClickListener, readOnly, tabComponent);
     }
 
-    private Component createTabWithImageAndForm(String caption, Layout formLayout, FontAwesome tabIcon,
+    private Component createTabWithImageAndForm(String caption, Layout formLayout, VaadinIcons tabIcon,
             String imageLocation, int imageHeight, int imageWidth, boolean formReadOnly) {
 
         if (formLayout == null) {
@@ -141,7 +141,7 @@ public class WinFormWithTabs extends Window {
         return centralLayout;
     }
 
-    private Component createTabWithLayout(String caption, Component component, FontAwesome tabIcon, boolean readOnly) {
+    private Component createTabWithLayout(String caption, Component component, VaadinIcons tabIcon, boolean readOnly) {
 
         VerticalLayout centralLayout = new VerticalLayout();
         centralLayout.setCaption(caption);
@@ -207,7 +207,7 @@ public class WinFormWithTabs extends Window {
      * @param imageWidth
      * @param readOnly
      */
-    public void addTab(String caption, Layout formLayout, FontAwesome tabIcon, String imageLocation,
+    public void addTab(String caption, Layout formLayout, VaadinIcons tabIcon, String imageLocation,
             int imageHeight, int imageWidth, boolean readOnly) {
 
         detailsWrapper.addComponent(
@@ -223,11 +223,11 @@ public class WinFormWithTabs extends Window {
      * @param tabIcon
      * @param readOnly
      */
-    public void addTab(String caption, Component component, FontAwesome tabIcon, boolean readOnly) {
+    public void addTab(String caption, Component component, VaadinIcons tabIcon, boolean readOnly) {
         detailsWrapper.addComponent(createTabWithLayout(caption, component, tabIcon, readOnly));
     }
 
-    public WinFormWithTabs addNewTab(String caption, Layout formLayout, FontAwesome tabIcon, String imageLocation,
+    public WinFormWithTabs addNewTab(String caption, Layout formLayout, VaadinIcons tabIcon, String imageLocation,
             int imageHeight, int imageWidth, boolean readOnly) {
 
         detailsWrapper.addComponent(

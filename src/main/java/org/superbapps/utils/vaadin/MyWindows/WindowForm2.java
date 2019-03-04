@@ -6,7 +6,7 @@
 package org.superbapps.utils.vaadin.MyWindows;
 
 import com.vaadin.event.ShortcutAction;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Responsive;
 import com.vaadin.server.Sizeable;
 import com.vaadin.server.ThemeResource;
@@ -81,7 +81,7 @@ public class WindowForm2 extends Window {
 
         HorizontalLayout centralLayout = new HorizontalLayout();
         centralLayout.setCaption(caption);
-        centralLayout.setIcon(FontAwesome.USER);
+        centralLayout.setIcon(VaadinIcons.USER);
         centralLayout.setSpacing(true);
         centralLayout.setMargin(true);
         centralLayout.addStyleName("profile-form");
