@@ -2,7 +2,7 @@ package org.superbapps.utils.vaadin.MyWindows;
 
 import com.vaadin.annotations.PropertyId;
 import com.vaadin.event.ShortcutAction.KeyCode;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
 import com.vaadin.server.Responsive;
 import com.vaadin.server.Sizeable;
@@ -98,7 +98,7 @@ public class ProfilePreferencesWindow extends Window {
     private Component buildPreferencesTab() {
         VerticalLayout root = new VerticalLayout();
         root.setCaption("Preferences");
-        root.setIcon(FontAwesome.COGS);
+        root.setIcon(VaadinIcons.COGS);
         root.setSpacing(true);
         root.setMargin(true);
         root.setSizeFull();
@@ -115,7 +115,7 @@ public class ProfilePreferencesWindow extends Window {
     private Component buildProfileTab() {
         HorizontalLayout root = new HorizontalLayout();
         root.setCaption("Profile");
-        root.setIcon(FontAwesome.USER);
+        root.setIcon(VaadinIcons.USER);
         root.setWidth(100.0f, Sizeable.Unit.PERCENTAGE);
         root.setSpacing(true);
         root.setMargin(true);

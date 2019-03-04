@@ -1,8 +1,8 @@
 package org.superbapps.utils.vaadin.FancyLabels;
 
-import com.vaadin.server.FontAwesome;
-import com.vaadin.v7.shared.ui.label.ContentMode;
-import com.vaadin.v7.ui.Label;
+import com.vaadin.icons.VaadinIcons;
+import com.vaadin.shared.ui.ContentMode;
+import com.vaadin.ui.Label;
 import java.util.HashMap;
 import java.util.Map;
 import org.superbapps.utils.common.Enums.Statuses2;
@@ -56,12 +56,12 @@ public class ColorLabels extends Label {
 
     private void render(String rgbColor) {
         iconCode = "<span class=\"v-icon\" style=\"font-family: "
-                + FontAwesome.CIRCLE.getFontFamily()
+                + VaadinIcons.CIRCLE.getFontFamily()
                 + ";color:"
                 + rgbColor
                 + "\">&#x"
                 + Integer
-                        .toHexString(FontAwesome.CIRCLE.getCodepoint())
+                        .toHexString(VaadinIcons.CIRCLE.getCodepoint())
                 + ";</span>";
     }
 }

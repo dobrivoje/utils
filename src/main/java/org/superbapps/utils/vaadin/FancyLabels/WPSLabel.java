@@ -1,6 +1,6 @@
 package org.superbapps.utils.vaadin.FancyLabels;
 
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.v7.shared.ui.label.ContentMode;
 import com.vaadin.v7.ui.Label;
 import java.util.HashMap;
@@ -33,12 +33,12 @@ public class WPSLabel extends Label {
 
     private void render(WorkingPlansStatuses status) {
         iconCode = "<span class=\"v-icon\" style=\"font-family: "
-                + FontAwesome.CIRCLE.getFontFamily()
+                + VaadinIcons.CIRCLE.getFontFamily()
                 + ";color:"
                 + color.get(status).toString()
                 + "\">&#x"
                 + Integer
-                .toHexString(FontAwesome.CIRCLE.getCodepoint())
+                .toHexString(VaadinIcons.CIRCLE.getCodepoint())
                 + ";</span>";
     }
 }

@@ -9,7 +9,6 @@ import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Layout;
 import com.vaadin.v7.ui.VerticalLayout;
 import com.vaadin.ui.Window;
-import com.vaadin.v7.ui.themes.Reindeer;
 import com.vaadin.ui.themes.ValoTheme;
 
 /**
@@ -61,7 +60,7 @@ public class WindowFormProp extends Window {
      * @param components
      */
     public WindowFormProp(String caption, int formHeight, int formWidth, Unit unit, boolean bigForm, String actionButtonCaption, Button.ClickListener externalButtonClickListener, Layout layout, Component... components) {
-        setStyleName(Reindeer.LAYOUT_BLACK);
+        // setStyleName(Reindeer.LAYOUT_BLACK);
         setCaption(caption);
         setModal(true);
 

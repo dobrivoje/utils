@@ -1,9 +1,9 @@
 package org.superbapps.utils.vaadin.Views;
 
 import com.vaadin.event.ShortcutAction;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.server.FontAwesome;
 import com.vaadin.server.Responsive;
 import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Alignment;
@@ -142,7 +142,7 @@ public abstract class View_Dashboard extends Panel implements View {
     protected final Button buildEditButton(String btnDesc, Button.ClickListener clickListener) {
         Button result = new Button();
         result.setId(EDIT_ID);
-        result.setIcon(FontAwesome.EDIT);
+        result.setIcon(VaadinIcons.EDIT);
         result.addStyleName("icon-edit");
         result.addStyleName(ValoTheme.BUTTON_ICON_ONLY);
         result.setDescription(btnDesc);
@@ -173,19 +173,19 @@ public abstract class View_Dashboard extends Panel implements View {
 
         MenuBar tools1 = new MenuBar();
         tools1.addStyleName(ValoTheme.MENUBAR_BORDERLESS);
-        max = tools1.addItem("", FontAwesome.EXPAND, (final MenuBar.MenuItem selectedItem) -> {
+        max = tools1.addItem("", VaadinIcons.EXPAND, (final MenuBar.MenuItem selectedItem) -> {
             if (!slot.getStyleName().contains("max")) {
-                selectedItem.setIcon(FontAwesome.COMPRESS);
+                selectedItem.setIcon(VaadinIcons.COMPRESS);
                 toggleMaximized(slot, viewMaximized = true);
             } else {
                 slot.removeStyleName("max");
-                selectedItem.setIcon(FontAwesome.EXPAND);
+                selectedItem.setIcon(VaadinIcons.EXPAND);
                 toggleMaximized(slot, viewMaximized = false);
             }
         });
         max.setStyleName("icon-only");
 
-        MenuBar.MenuItem panelOptions = tools1.addItem("", FontAwesome.COG, null);
+        MenuBar.MenuItem panelOptions = tools1.addItem("", VaadinIcons.COG, null);
 
         // pomocna varijabla za iscrtavanje separator linije
         int separatorInd = 0;
@@ -412,7 +412,7 @@ public abstract class View_Dashboard extends Panel implements View {
         public static final String ID = "dashboard-notifications";
 
         public NotificationsButton() {
-            setIcon(FontAwesome.BELL);
+            setIcon(VaadinIcons.BELL);
             setId(ID);
             addStyleName("notifications");
             addStyleName(ValoTheme.BUTTON_ICON_ONLY);
