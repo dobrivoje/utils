@@ -14,6 +14,10 @@ public class Utils {
 
     public static final String NL = String.format("%n", "");
 
+    public static String capitalize(String str) {
+        return str.substring(0, 1).toUpperCase().concat(str.substring(1));
+    }
+
     public static String getShorterString(String str) {
         return getShorterString(str, 30);
     }
