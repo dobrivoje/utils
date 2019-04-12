@@ -113,18 +113,18 @@ public abstract class CustomObjectTree<T> extends CustomTree<T> implements IRefr
 
     //<editor-fold defaultstate="collapsed" desc="Recreate All Sub Nodes">
     protected final void recreateAllSubNodes() {
+        //<editor-fold defaultstate="collapsed" desc="prastara verzija">
         /*
-         if (!items.getContainerPropertyIds().isEmpty()) {
-         items.getContainerPropertyIds().stream().forEach((rootNode) -> {
-         createSubNodes((T) rootNode);
-         });
-         }
+        if (!items.getContainerPropertyIds().isEmpty()) {
+        items.getContainerPropertyIds().stream().forEach((rootNode) -> {
+        createSubNodes((T) rootNode);
+        });
+        }
          */
+        //</editor-fold>
 
         if (!elements.isEmpty()) {
-            elements.stream().forEach((e) -> {
-                createSubNodes((T) e);
-            });
+            elements.stream().forEach(e -> createSubNodes((T) e));
         }
     }
     //</editor-fold>
