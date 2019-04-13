@@ -1,7 +1,7 @@
 package org.superbapps.utils.threadexec;
 
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.UI;
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,72 +14,52 @@ import org.superbapps.utils.common.ObjectHolders.ObjectHolder;
  *
  * @author д06ри, dobri7@gmail.com
  *
- * Klasa za izvršavanje callable<T>thread-ova.<br>
+ * Klasa za izvršavanje callable thread-ova.<br>
  * Zbog pojednostavljenja, odgovor tipa T, je String
  */
 public class UniTaskExecutor {
 
-    //<editor-fold defaultstate="collapsed" desc="infra">
     private final Callable<String> callable;
-    private ExecutorService ES;
-
-    // zbog potrebe pristupa unutar interfejsa, moramo koristiti holder-e
-    private final ObjectHolder<String> msgTitle;
-    private final ObjectHolder<String> msgContent;
+    private final ExecutorService ES = Executors.newCachedThreadPool();
 
     public UniTaskExecutor(Callable<String> callable) {
         this.callable = callable;
-
-        msgTitle = new ObjectHolder<>("");
-        msgContent = new ObjectHolder<>("");
     }
-    //</editor-fold>
 
     /**
      * Metod koji izvršava "callable thread"
      *
-     * @param successfullMessage Poruka posle uspešnog izvršenja
+     * @param message Poruka posle uspešnog izvršenja
      * @param server Ime servera za poruku o grešci
      * @param task Ime taks-a za poruku o grešci
+     * @param postStoreEvent
+     * @param msgHolder
+     * @param errHolder
      */
-    public void executeRemoteShellCommand(String successfullMessage, String server, String task) {
-        if (ES == null || ES.isTerminated()) {
-            ES = Executors.newFixedThreadPool(20);
-        }
+    public void executeRemoteShellCommand(String message, String server, String task, ObjectHolder<String> msgHolder, ObjectHolder<Boolean> errHolder, Runnable postStoreEvent) {
+        ExecutorService TE = Executors.newCachedThreadPool();
 
-        final Future<String> execTask = ES.submit(callable);
+        TE.execute(() -> {
+            Future<String> execResult = ES.submit(callable);
 
-        try {
-            ES.execute(() -> {
-                String errorMsg = "Server [" + server + "], task [" + task + "]\n";
+            try {
+                String taskFinishedMsg = execResult.get();
 
-                try {
-                    String execTaskReturnMessage = execTask.get();
+                String msg = taskFinishedMsg == null || taskFinishedMsg.isEmpty() ? message : message + "\n" + taskFinishedMsg;
+                msgHolder.set(msg);
+                Logger.getLogger("#### UniTaskExecutor ---> ").log(Level.INFO, msg);
+            } catch (InterruptedException | ExecutionException e) {
+                String errorMsgHeader = String.format("Server [%s], task [%s]\n", server, task);
+                Logger.getLogger("UniTaskExecutor Error.").log(Level.SEVERE, "Greška : {0}, {1}", new Object[]{errorMsgHeader, e.getMessage()});
+                errHolder.set(true);
+                msgHolder.set(errorMsgHeader + ", Greška : " + e.getMessage());
+            }
 
-                    // msgTitle.set("Obaveštenje");
-                    msgContent.set(execTaskReturnMessage.isEmpty() ? successfullMessage : successfullMessage + "\n" + execTaskReturnMessage);
+            ES.shutdown();
+            Objects.requireNonNull(postStoreEvent, getClass().getSimpleName() + " -> Obezbediti post-store kod.");
+            postStoreEvent.run();
+        });
 
-                    Logger.getLogger("#### UniTaskExecutor ---> ").log(Level.INFO, msgContent.get());
-
-                } catch (Exception e) {
-                    // msgTitle.set("Greška");
-                    msgContent.set(errorMsg + e.getMessage());
-
-                    Logger.getLogger("#### UniTaskExecutor ---> ").log(Level.INFO, "Greška : {0}", errorMsg + e.getMessage());
-                } finally {
-                    Logger.getLogger("#### UniTaskExecutor ---> ").log(Level.INFO, msgContent.get());
-
-                    Notification n = new Notification(msgTitle.get(), msgContent.get(), Notification.Type.ERROR_MESSAGE);
-                    n.setDelayMsec(5000);
-
-                    n.show(UI.getCurrent().getPage());
-                }
-            });
-        } catch (Exception e) {
-            System.err.println("izuzetaaaak : " + e.getMessage());
-        }
-
-        ES.shutdown();
+        TE.shutdown();
     }
-
 }

@@ -4,7 +4,7 @@
     
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>2.12</version>
+    <version>2.13</version>
     <packaging>jar</packaging>
     <name>Utils</name>
 
