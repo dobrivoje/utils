@@ -4,7 +4,7 @@
     
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.9</version>
+    <version>1.9.1</version>
     <packaging>jar</packaging>
     <name>Utils</name>
 
@@ -32,7 +32,7 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-server</artifactId>
-            <version>7.7.15</version>
+            <version>7.7.17</version>
         </dependency>
         <dependency>
             <groupId>org.vaadin.addon</groupId>
@@ -87,7 +87,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <description>        1.7.6. 21.6.2017        
+    <description>        -1.9.1. 1.5.2019 Vaadin 7.7.17
+
+        1.7.6. 21.6.2017        
         1.7.5. 12.5.2017
         1.7.4. 12.3.2017
         1.7.3. 13.2.2017
@@ -137,16 +139,17 @@
         1.0 - Init
     </description>
     
+    <!--    
     <build>
         <plugins>
             <plugin>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
-                <!-- bez linije ispod NEĆE da se okmpjlira ! -->
+                 bez linije ispod NEĆE da se okmpjlira ! 
                 <version>8.1.2</version>
                 <configuration>
                     <extraJvmArgs>-Xmx1024M -Xss1024k</extraJvmArgs>
-                    <!--<webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>-->
+                    <webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>
                     <draftCompile>true</draftCompile>
                     <compileReport>false</compileReport>
                     <style>DETAILED</style>
@@ -156,16 +159,15 @@
                 <executions>
                     <execution>
                         <goals>
-                            <!--<goal>update-theme</goal>-->
-                            <!--<goal>update-widgetset</goal>-->
+                            <goal>update-theme</goal>
+                            <goal>update-widgetset</goal>
                             <goal>compile</goal>
-                            <!--<goal>compile-theme</goal>-->
+                            <goal>compile-theme</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
-    
+    -->
 </project>
