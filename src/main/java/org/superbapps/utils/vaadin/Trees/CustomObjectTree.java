@@ -123,8 +123,10 @@ public abstract class CustomObjectTree<T> extends CustomTree<T> implements IRefr
          */
         //</editor-fold>
 
-        if (!elements.isEmpty()) {
-            elements.stream().forEach(e -> createSubNodes((T) e));
+//        if (!elements.isEmpty()) {
+        if (!getItemIds().isEmpty()) {
+//            elements.stream().forEach(e -> createSubNodes((T) e));
+            getItemIds().stream().forEach(e -> createSubNodes((T) e));
         }
     }
     //</editor-fold>

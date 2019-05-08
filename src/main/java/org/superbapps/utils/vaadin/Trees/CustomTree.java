@@ -45,11 +45,11 @@ public class CustomTree<T> extends Tree {
     /**
      * <b>elements</b> - List of the root nodes elements for this Custom tree.
      */
-    protected List<T> elements;
+//    protected List<T> elements;
 
     private void init(String caption) {
         setCaption(caption);
-        elements = new ArrayList();
+//        elements = new ArrayList();
 
         if (items.size() > 0) {
             items.removeAllItems();
@@ -100,8 +100,8 @@ public class CustomTree<T> extends Tree {
         init(caption);
         addItems(rootItems);
 
-        elements.clear();
-        elements.addAll(rootItems.subList(0, rootItems.size()));
+//        elements.clear();
+//        elements.addAll(rootItems.subList(0, rootItems.size()));
     }
 
     /**
@@ -125,8 +125,8 @@ public class CustomTree<T> extends Tree {
         init(caption);
         super.setContainerDataSource(container);
 
-        elements.clear();
-        elements.addAll(container.getItemIds());
+//        elements.clear();
+//        elements.addAll(container.getItemIds());
     }
 
     /**
