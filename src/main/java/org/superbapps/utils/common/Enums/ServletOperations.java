@@ -7,9 +7,11 @@ public enum ServletOperations {
     AUTH_SUBJECT("SHIRO_SESSION_SUBJECT"),
     AUTH_USERNAME("SHIRO_SESSION_USERNAME"),
     LOGGED_USER("SHIRO_SESSION_LOGGEDUSER"),
-    SERVLET_DESTRUCTION("SERVLET_SESSION_DESTRUCTION");
+    LOGGED_USER_CATERING("USER.CATERING"),
+    SERVLET_DESTRUCTION("SERVLET_SESSION_DESTRUCTION"),
+    NEW_USER_REGISTRATION("NEW_USER_REGISTRATION");
 
-    private final String name;
+    private String name;
 
     private ServletOperations(String name) {
         this.name = name;

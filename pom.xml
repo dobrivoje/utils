@@ -4,7 +4,7 @@
     
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.9.1</version>
+    <version>1.9.2</version>
     <packaging>jar</packaging>
     <name>Utils</name>
 
@@ -87,7 +87,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <description>        -1.9.1. 1.5.2019 Vaadin 7.7.17
+    <description>
+        -1.9.2. 21.5.2019
+        -1.9.1. 1.5.2019 Vaadin 7.7.17
 
         1.7.6. 21.6.2017        
         1.7.5. 12.5.2017
@@ -143,29 +145,13 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-maven-plugin</artifactId>
-                 bez linije ispod NEĆE da se okmpjlira ! 
-                <version>8.1.2</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
-                    <extraJvmArgs>-Xmx1024M -Xss1024k</extraJvmArgs>
-                    <webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>
-                    <draftCompile>true</draftCompile>
-                    <compileReport>false</compileReport>
-                    <style>DETAILED</style>
-                    <strict>true</strict>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
-                
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>update-theme</goal>
-                            <goal>update-widgetset</goal>
-                            <goal>compile</goal>
-                            <goal>compile-theme</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
