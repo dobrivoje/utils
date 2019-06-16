@@ -1,7 +1,6 @@
 package org.superbapps.utils.common.dates.mesec;
 
 /**
- *
  * @author д06ри
  */
 public enum Mesec {
@@ -24,11 +23,6 @@ public enum Mesec {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
-
     /**
      * Vrati naziv meseca
      *
@@ -39,4 +33,12 @@ public enum Mesec {
         return Mesec.values()[indeks - 1];
     }
 
+    public static String get(int mesec, int godina) {
+        return Mesec.get(mesec).toString().concat(" ").concat(Integer.toString(godina));
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
