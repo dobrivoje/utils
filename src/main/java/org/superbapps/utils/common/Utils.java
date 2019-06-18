@@ -18,11 +18,19 @@ public class Utils {
             str.substring(0, 1).toUpperCase().concat(str.substring(1).toLowerCase());
     }
 
-    public static String getShorterString(String str) {
-        return getShorterString(str, 30);
+    public static String GetShorterString(String str) {
+        return GetShorterString(str, 30);
     }
 
-    public static String getShorterString(String str, int maxChars) {
+    /**
+     * Ako je string duži od n karaktera, skrati ga, i prilepi "..."
+     * Potrebno je za tabele kada koristimo npr. na mobilnom
+     *
+     * @param str
+     * @param maxChars
+     * @return
+     */
+    public static String GetShorterString(String str, int maxChars) {
         try {
             if (str.length() > maxChars) {
                 str = str.substring(0, maxChars);
