@@ -374,7 +374,7 @@ public abstract class View_Dashboard extends Panel implements View {
             notificationsWindow.setClosable(false);
             notificationsWindow.setResizable(false);
             notificationsWindow.setDraggable(false);
-            notificationsWindow.setCloseShortcut(ShortcutAction.KeyCode.ESCAPE, null);
+            notificationsWindow.addCloseShortcut(ShortcutAction.KeyCode.ESCAPE, null);
             notificationsWindow.setContent(notificationsLayout);
         }
 

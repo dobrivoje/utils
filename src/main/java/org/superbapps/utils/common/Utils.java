@@ -51,7 +51,7 @@ public class Utils {
      * @param collection Collection
      * @return Formatted string in nice form
      */
-    public static <T> String getListFromCollection(Collection<T> collection) {
+    public static <T> String getStringListFromCollection(Collection<T> collection) {
         StringBuilder sb = new StringBuilder();
         collection.stream().forEach(elem -> sb.append(elem).append(NL));
         return sb.toString();

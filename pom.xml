@@ -4,7 +4,7 @@
     
     <groupId>org.superbapps</groupId>
     <artifactId>utils-all</artifactId>
-    <version>1.9.2</version>
+    <version>1.9.3</version>
     <packaging>jar</packaging>
     <name>Utils</name>
 
@@ -63,6 +63,11 @@
             <version>2.1</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
     </dependencies>
     
     <repositories>
@@ -88,6 +93,7 @@
     </properties>
 
     <description>
+        -1.9.3. 3.8.2019
         -1.9.2. 21.5.2019
         -1.9.1. 1.5.2019 Vaadin 7.7.17
 
