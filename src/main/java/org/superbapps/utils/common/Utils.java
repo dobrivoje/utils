@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 public class Utils {
 
     public static final String NL = String.format("%n", "");
+    public static final String NEW_LINE = "\n";
 
     public static String capitalize(String str) {
         return (str == null || str.length() < 2) ? "" :
