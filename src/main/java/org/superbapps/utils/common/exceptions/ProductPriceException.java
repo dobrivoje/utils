@@ -3,9 +3,9 @@ package org.superbapps.utils.common.exceptions;
 /**
  * @author д06ри, dobri7@gmail.com
  */
-public class ProductException extends Exception {
+public class ProductPriceException extends Exception {
 
-    public ProductException(String message) {
+    public ProductPriceException(String message) {
         super(message);
     }
 }
