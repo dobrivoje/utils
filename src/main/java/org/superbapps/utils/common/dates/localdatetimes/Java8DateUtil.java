@@ -8,10 +8,19 @@ import java.util.Date;
 public class Java8DateUtil {
 
     public static final String DATE_PATTERN_SERBIA = "dd.MM.yyyy";
-    //</editor-fold>
     public static final String DATE_TIME_PATTERN_SERBIA = "dd.MM.yyyy hh:MM:ss";
 
-    //<editor-fold desc="enum WEEK">
+    public enum INTERVAL {
+        DATES(new Date(0), new Date());
+        public Date start;
+        public Date end;
+
+        INTERVAL(Date start, Date end) {
+            this.start = start;
+            this.end = end;
+        }
+    }
+
     public enum WEEK {
         DAYS(LocalDate.MIN, LocalDate.MAX);
 
@@ -20,14 +29,6 @@ public class Java8DateUtil {
 
         WEEK(LocalDate start, LocalDate end) {
             this.start = start;
-            this.end = end;
-        }
-
-        public void setStart(LocalDate start) {
-            this.start = start;
-        }
-
-        public void setEnd(LocalDate end) {
             this.end = end;
         }
 
@@ -57,6 +58,52 @@ public class Java8DateUtil {
         return localDateTime;
     }
 
+    /**
+     * Interval dana u mesecu : od 1. do poslednjeg.
+     *
+     * @param year
+     * @param month
+     * @return
+     */
+    public static INTERVAL get(int year, int month) {
+        return get(year, month, 1, -1);
+    }
+
+    /**
+     * Proizvoljan interval.
+     * startni i poslednji dani moraju pripadati intervalu
+     * karakterističnim za taj mesec.
+     * <p>
+     * Ako se probije interval, izbacuje se RuntimeException
+     *
+     * @param year
+     * @param month
+     * @param startDay
+     * @param endDay   Ako je -1, vraća se posl. dan za kalendarski mesec
+     * @return
+     */
+    public static INTERVAL get(int year, int month, int startDay, int endDay) {
+        LocalDate ldPoc = LocalDate.of(year, month, startDay);
+
+        int lastPossibleCalendaDayOfTheMonth = ldPoc.lengthOfMonth();
+        int finalDayOfTheMonth;
+
+        if (endDay == -1)
+            finalDayOfTheMonth = lastPossibleCalendaDayOfTheMonth;
+        else if (endDay > lastPossibleCalendaDayOfTheMonth)
+            throw new RuntimeException("End day must not exceed : " + lastPossibleCalendaDayOfTheMonth);
+        else finalDayOfTheMonth = endDay;
+
+        LocalDate ldKraj = LocalDate.of(year, month, finalDayOfTheMonth);
+        Date odabraniDatumOd = Java8DateUtil.FromLocalDate(ldPoc);
+        Date odabraniDatumDo = Java8DateUtil.FromLocalDate(ldKraj);
+
+        INTERVAL interval = INTERVAL.DATES;
+        interval.DATES.start = odabraniDatumOd;
+        interval.DATES.end = odabraniDatumDo;
+        return interval;
+    }
+
     public static WEEK WorkWeek(LocalDate localDate) {
         return WorkWeek(localDate, DayOfWeek.MONDAY, 5);
     }
@@ -80,8 +127,8 @@ public class Java8DateUtil {
         LocalDate last = first.plusDays(4);
 
         WEEK w = WEEK.DAYS;
-        w.setStart(first);
-        w.setEnd(last);
+        w.start = first;
+        w.end = last;
         return w;
     }
     //</editor-fold>
@@ -109,5 +156,13 @@ public class Java8DateUtil {
         WEEK previuosWorkWeek = PreviuosWorkWeek(datum);
         System.err.println(previuosWorkWeek.start.format(srbijaFormatDatuma));
         System.err.println(previuosWorkWeek.end.format(srbijaFormatDatuma));
+
+        System.err.println("---------------------------------------------");
+        INTERVAL in = get(2019, 7);
+        System.err.println("interval 1 : " + in.start + "-" + in.end);
+        INTERVAL in2 = get(2019, 2);
+        System.err.println("interval 2 : " + in2.start + "-" + in2.end);
+        INTERVAL in3 = get(2012, 2);
+        System.err.println("interval 3 : " + in3.start + "-" + in3.end);
     }
 }
