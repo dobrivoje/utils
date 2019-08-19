@@ -38,6 +38,10 @@ public class ObjectCounter {
         return ++counter;
     }
 
+    public int getAndInc() {
+        return counter++;
+    }
+
     /**
      * Decrement without returning a result.
      */
