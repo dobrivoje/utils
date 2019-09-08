@@ -157,8 +157,8 @@
             <plugin>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
-                <!-- bez linije ispod NEĆE da se okmpjlira ! -->
-                <version>8.1.2</version>
+                <!-- bez linije ispod NEĆE da se kompajlira ! -->
+                <version>8.8.6</version>
                 <configuration>
                     <extraJvmArgs>-Xmx4G -Xss1024k</extraJvmArgs>
                     <!--<webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>-->
