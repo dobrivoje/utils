@@ -8,6 +8,15 @@
     <packaging>jar</packaging>
     <name>Utils</name>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.encoding>UTF-8</project.encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <vaadin.version>8.9.1</vaadin.version>
+        <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.ibm.icu</groupId>
@@ -32,7 +41,7 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-compatibility-server</artifactId>
-            <version>8.8.6</version>
+            <version>${vaadin.version}</version>
         </dependency>
         <dependency>
             <groupId>org.vaadin.addon</groupId>
@@ -86,13 +95,6 @@
         </repository>
     </repositories>
     
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <vaadin.version>8.8.6</vaadin.version>
-    </properties>
-
     <description>
         2.15 : 3.8.2019 - utils...
         2.12 : 17.3.2019 - izbacivanje V7 layout-a
@@ -158,7 +160,7 @@
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
                 <!-- bez linije ispod NEĆE da se kompajlira ! -->
-                <version>8.8.6</version>
+                <version>${vaadin.plugin.version}</version>
                 <configuration>
                     <extraJvmArgs>-Xmx4G -Xss1024k</extraJvmArgs>
                     <!--<webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>-->
