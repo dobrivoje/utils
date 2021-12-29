@@ -23,7 +23,7 @@ import static org.superbapps.utils.vaadin.MyWindows.WindowFormProp.WINDOW_WIDTH_
 public class CustomTree<T> extends Tree {
 
     protected VerticalLayout propPanel;
-    protected List propTrees;
+    protected List<?> propTrees;
 
     // Calling form : form caption and (right) property panel
     protected String winFormCaption;
@@ -49,7 +49,7 @@ public class CustomTree<T> extends Tree {
 
     private void init(String caption) {
         setCaption(caption);
-        elements = new ArrayList();
+        elements = new ArrayList<>();
 
         if (items.size() > 0) {
             items.removeAllItems();
@@ -79,16 +79,16 @@ public class CustomTree<T> extends Tree {
      * @param rootItems root nodes list
      * @throws org.superbapps.utils.vaadin.Exceptions.CustomTreeNodesEmptyException
      */
-    public CustomTree(String caption, List rootItems) throws CustomTreeNodesEmptyException, NullPointerException {
+    public CustomTree(String caption, List<T> rootItems) throws CustomTreeNodesEmptyException, NullPointerException {
         this(caption, rootItems, false);
     }
 
-    public CustomTree(String caption, List rootItems, boolean expandRootNodes) throws CustomTreeNodesEmptyException, NullPointerException {
+    public CustomTree(String caption, List<T> rootItems, boolean expandRootNodes) throws CustomTreeNodesEmptyException, NullPointerException {
         this.expandRootNodes = expandRootNodes;
         createRoots(caption, rootItems);
     }
 
-    protected final void createRoots(String caption, List rootItems) throws UnsupportedOperationException, CustomTreeNodesEmptyException, NullPointerException {
+    protected final void createRoots(String caption, List<T> rootItems) throws UnsupportedOperationException, CustomTreeNodesEmptyException, NullPointerException {
         if (rootItems == null) {
             throw new NullPointerException();
         }
@@ -115,7 +115,7 @@ public class CustomTree<T> extends Tree {
      */
     public CustomTree(String caption, BeanItemContainer<T> container) throws CustomTreeNodesEmptyException, NullPointerException {
         if (container == null) {
-            throw new NullPointerException();
+            throw new RuntimeException("Container does not exist.");
         }
 
         if (container.size() <= 0) {
@@ -136,7 +136,7 @@ public class CustomTree<T> extends Tree {
      * @param rootNodeChildItemsList List of the sub nodes for the root node.
      * @param expandRootNodes
      */
-    protected void setNodeItems(Object rootNode, List rootNodeChildItemsList, boolean expandRootNodes) {
+    protected void setNodeItems(Object rootNode, List<?> rootNodeChildItemsList, boolean expandRootNodes) {
         for (Object childItem : rootNodeChildItemsList) {
             if (this.containsId(rootNode)) {
                 addItem(childItem);
@@ -150,7 +150,7 @@ public class CustomTree<T> extends Tree {
         }
     }
 
-    protected void setNodeItems(Object rootNode, List rootNodeChildItemsList) {
+    protected void setNodeItems(Object rootNode, List<?> rootNodeChildItemsList) {
         this.setNodeItems(false, rootNodeChildItemsList, readOnly);
     }
 
